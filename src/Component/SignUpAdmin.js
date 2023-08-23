@@ -5,7 +5,7 @@ import Menubar from './Menubar';
 import Footer from './Footer';
 import { Link, useNavigate } from 'react-router-dom';
 // import axios from 'axios';
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 
 
 
@@ -21,12 +21,12 @@ export default function SignUpAdmin() {
     // const [experience, setExperience] = useState("");
     // const [degree, setDegree] = useState("");
     // const [catagory, setCatagory] = useState("");
-    const responseSuccessGoogle=(response)=>{
-           console.log(response);
-    }
-    const responseErrorGoogle=(response)=>{
-        // console.log(response);
- }
+//     const responseSuccessGoogle=(response)=>{
+//            console.log(response);
+//     }
+//     const responseErrorGoogle=(response)=>{
+//         // console.log(response);
+//  }
 
 
     const navigate = useNavigate();
@@ -326,13 +326,13 @@ export default function SignUpAdmin() {
                     </Form.Group>
 
                     <Button variant="primary" onClick={emailValidation} type="submit">Submit</Button><br /><br />
-                    <GoogleLogin
+                    {/* <GoogleLogin
                         clientId="828958241791-ig1fhckkf4hn59bkiv2inhnemh9g6991.apps.googleusercontent.com"
                         buttonText="Login with Google"
                         onSuccess={responseSuccessGoogle}
                         onFailure={responseErrorGoogle}
                         cookiePolicy={'single_host_origin'}
-                    /><br/><br/>
+                    /><br/><br/> */}
                     Already signUp
                     <Link to='/signIn' className='mx-4' style={{ "textDecoration": "none", "color": "orange" }}>SignIn</Link>
                 </Form>
