@@ -37,7 +37,7 @@ export default function Menubar() {
               {/* <Nav.Link as={Link} to={"/clientData"}>ClientData</Nav.Link> */}
               {/* <Nav.Link as={Link} to={"/clientDetails"}>ClientDetails</Nav.Link> */}
               {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end",marginRight: '10px' }}>ClientDetails</Nav.Link>) : null}
-              {client ? (<Nav.Link as={Link} to={"/profile"} style={{ "selfAlign": "flex-end" ,marginRight: '10px'}}>Profile</Nav.Link>) : null}
+              {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end" ,marginRight: '10px'}}>Profile</Nav.Link>) : null}
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">

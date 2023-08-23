@@ -6,7 +6,7 @@ import SignIn from './SignIn.js';
 import SignUpAdmin from './SignUpAdmin.js';
 import SignUpClient from './SignUpClient.js';
 import SignUpLawyer from './SignUpLawyer.js';
-import Profile from './Profile.js';
+import ClientProfile from './ClientProfile.js';
 import AdminCompo from './AdminCompo.js';
 import LawyerCompo from './LawyerCompo.js';
 import ClientCompo from './ClientCompo.js';
@@ -32,7 +32,7 @@ function App() {
             </Route>
             <Route element={<LawyerCompo />}> </Route>
             <Route element={<ClientCompo />}>
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/clientprofile" element={<ClientProfile />} />
               <Route path="/editClient/:clientId" element={<EditClient />} />
             </Route>
           </Route>

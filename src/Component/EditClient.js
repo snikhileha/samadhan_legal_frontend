@@ -15,20 +15,34 @@ export default function EditClient() {
 
   const navigate = useNavigate();
   const { clientId } = useParams();
-
   useEffect(() => {
-    getClient();
-  }, []);
+    const getClient = async () => {
+        let result = await fetch(`/getClient/${clientId}`);
+        result = await result.json();
 
-  const getClient = async () => {
-    let result = await fetch(`/getClient/${clientId}`);
-    result = await result.json();
+        setName(result.data.name);
+        setEmail(result.data.email);
+        setImage(result.data.image);
+        setPreviewImage(`/${result.data.image}`);
+    };
 
-    setName(result.data.name);
-    setEmail(result.data.email);
-    setImage(result.data.image);
-    setPreviewImage(`/${result.data.image}`);
-  };
+    getClient(); // Call the function immediately
+
+}, [clientId]); // Add clientId to the dependency array
+
+  // useEffect(() => {
+  //   getClient();
+  // }, []);
+
+  // const getClient = async () => {
+  //   let result = await fetch(`/getClient/${clientId}`);
+  //   result = await result.json();
+
+  //   setName(result.data.name);
+  //   setEmail(result.data.email);
+  //   setImage(result.data.image);
+  //   setPreviewImage(`/${result.data.image}`);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
