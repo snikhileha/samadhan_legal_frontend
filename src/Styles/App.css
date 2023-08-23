@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+
+.profile{
+    border: 1px solid black;
+    height: 85vh;
+    width: 70vh;
+    margin: 10vh 70vh 10vh 70vh;
+    padding: 10vh;
+}
+table,th,tr,td,tbody,thead{
+    border: 1px solid gray;
+    background-color:rgb(248, 243, 243);
+    padding: 2vh;
+    margin: 10vh 70vh 10vh 70vh;
+
+
+}
+.dataInfo {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.data-row:last-child {
+  border-bottom: none;
+}
+.HomePage1{
+  display: flex;
+  flex-direction: column;
+}
+.lawyerInfo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.cardItem {
+  flex-basis: calc(33.33% - 10px); /* Adjust the width based on your requirements */
+  margin: 5px;
+}
