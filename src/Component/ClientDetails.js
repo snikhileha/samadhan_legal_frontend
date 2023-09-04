@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 export default function ClientDetails() {
     const [data, setData] = useState([]);
-    // const url = process.env.URL;
+    const url = process.env.URL;
    
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function ClientDetails() {
 
     }, [])
     const getAllClient = () => {
-        fetch(`https://samadhan-legal-services.onrender.com/getAllClient`, {
+        fetch(`${url}/getAllClient`, {
             method: "GET",
             // mode: 'cors',
         })
