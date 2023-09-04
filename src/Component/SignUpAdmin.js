@@ -50,7 +50,7 @@ export default function SignUpAdmin() {
             // formData.append("secretKey", secretKey);
 
             if(isEmail){
-            await fetch("/signUp-admin", {
+            await fetch("https://samadhan-legal-services.onrender.com/signUp-admin", {
                 method: "POST",
                 crossDomain: true,
 

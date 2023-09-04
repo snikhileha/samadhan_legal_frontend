@@ -88,7 +88,7 @@ export default function SignUpClient() {
         // formData.append("user", userType);
         formData.append("password", password);
          if(isEmail){
-            await fetch("/signUp-client", {
+            await fetch("https://samadhan-legal-services.onrender.com/signUp-client", {
             method: "POST",
             crossDomain: true,
 
