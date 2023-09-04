@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 export default function ClientDetails() {
     const [data, setData] = useState([]);
-    const url = process.env.URL;
+    const url = process.env.BASE_URL;
    
 
     useEffect(() => {
