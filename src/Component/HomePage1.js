@@ -10,7 +10,7 @@ export default function HomePage1() {
 
     }, [])
     const getLawyerDetails = () => {
-        fetch("https://samadhan-legal-services.onrender.com/getAllLawyer", {
+        fetch("/getAllLawyer", {
             method: "GET",
         })
             .then((res) => res.json())
@@ -42,7 +42,7 @@ export default function HomePage1() {
                                     result.push(
                                         <Card key={index} style={{ width: '18rem', border: 'none' }} className='cardItem'>
                                             <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
-                                                <Card.Img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }} src={`https://samadhan-legal-services.onrender.com/${i?.image}`} />
+                                                <Card.Img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }} src={`/${i?.image}`} />
                                             </div>
                                             <Card.Body>
                                                 <Card.Title style={{textAlign:"center"}}>{i.name}</Card.Title>
