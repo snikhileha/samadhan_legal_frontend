@@ -24,7 +24,7 @@ export default function ClientDetails() {
 
     }, [])
     const getAllClient = () => {
-        fetch(`https://samadhan-legal-services.onrender.com/getAllClient`, {
+        fetch(`/getAllClient`, {
             method: "GET",
             // mode: 'cors',
         })
@@ -38,7 +38,7 @@ export default function ClientDetails() {
     }
     const deleteProduct = (id, name) => {
         if (window.confirm(`Are you sure you want to delete ${name}`)) {
-            fetch(`https://samadhan-legal-services.onrender.com/client/${id}`, {
+            fetch(`/client/${id}`, {
                 method: "DELETE"
 
             })
@@ -74,7 +74,7 @@ export default function ClientDetails() {
             {data.map((i, index) => (
               <div className="data-row" key={i._id}>
                 <span style={{width:"0",display:"flex"}}>{index + 1}</span>
-                <img style={{width:"40px",height:"45px",display:"flex"}} src={`https://samadhan-legal-services.onrender.com/${i?.image}`} alt="profile"/>
+                <img style={{width:"40px",height:"45px",display:"flex"}} src={`/${i?.image}`} alt="profile"/>
                 <span style={{width:"30px",display:"flex"}}>{i.name}</span>
                 <span style={{width:"60px",display:"flex"}}>{i.email}</span>
                 {/* <span style={{width:"20px",display:"flex"}}>{i.user}</span> */}

@@ -16,7 +16,7 @@ export default function ClientInfo() {
 
     useEffect(() => {
         const getClient = () => {
-            fetch(`https://samadhan-legal-services.onrender.com/getClient/${clientId.clientId}`, {
+            fetch(`/getClient/${clientId.clientId}`, {
                 method: "GET",
             })
                 .then((res) => res.json())
@@ -60,7 +60,7 @@ export default function ClientInfo() {
                 <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
 
                     <img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
-                        src={`https://samadhan-legal-services.onrender.com/${data?.image}`} alt='profile' />
+                        src={`/${data?.image}`} alt='profile' />
                 </div><br /><br />
                 <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
                     <h4 style={{ display: "inline" }}>Name: </h4>

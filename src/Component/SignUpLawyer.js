@@ -123,7 +123,7 @@ export default function SignUpLawyer() {
             formData.append("experience", experience);
             formData.append("degree", degree);
             if(isEmail){
-                await fetch("https://samadhan-legal-services.onrender.com/signUp-lawyer", {
+                await fetch("/signUp-lawyer", {
                     method: "POST",
                     crossDomain: true,
     
