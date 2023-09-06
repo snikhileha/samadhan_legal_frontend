@@ -14,7 +14,7 @@ export default function LawyersInfo() {
   }, []);
 
   const getLawyerDetails = () => {
-    fetch('/getAllLawyer', {
+    fetch('https://samadhan-legal-services.onrender.com/getAllLawyer', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -73,7 +73,7 @@ export default function LawyersInfo() {
               <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
                 <Card.Img
                   style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
-                  src={`/${i?.image}`}
+                  src={`https://samadhan-legal-services.onrender.com/${i?.image}`}
                 />
               </div>
               <Card.Body>
