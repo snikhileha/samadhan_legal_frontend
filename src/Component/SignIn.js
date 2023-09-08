@@ -150,8 +150,10 @@ const SignIn = () => {
 
           <Link className="mx-2" style={{ "textDecoration": "none" }} to="/#"><span
             style={{ "fontSize": "14px", "color": "black" }}>FORGOT PASSWORD?</span></Link>
-          {/* <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-client"><span */}
-             {/* style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT</span></Link> */}
+          <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-client"><span
+              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-Client</span></Link> <br/>
+              <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-lawyer"><span
+              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-Lawyer</span></Link>
         </Form>
       </div>
       <Footer />
