@@ -26,8 +26,8 @@ export default function HomePage1() {
         <div className='HomePage1'>
             <div className="row">
                 <div className="col-md-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <h2><strong>Find Your Legal Aid For All Your </strong></h2>
-                    <h4>Civil And Corporate Needs</h4>
+                    <h2><strong>Find Your Legal Aid For All  </strong></h2>
+                    <h4><strong>Your Civil And Corporate Needs</strong></h4>
                     <Link to="/signUp-lawyer">
                         <button  className="my-2" style={{ width: "200px", height: "35px",border:"none", backgroundColor: "#6bc9cf" }}>GET Started</button>
                         </Link>
