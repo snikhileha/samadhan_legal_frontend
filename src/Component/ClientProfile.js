@@ -64,7 +64,7 @@ export default function ClientProfile() {
                     <h3 style={{ display: "inline" }}>{data.email}</h3>
                 </div>
 
-              
+              {/* <Link to='/editClient/:clientId'><button>Edit Your Prifile</button></Link> */}
 
             </div>
             <Footer />
