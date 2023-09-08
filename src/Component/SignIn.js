@@ -149,11 +149,11 @@ const SignIn = () => {
           <Button variant="primary" type="submit">Submit</Button><br /><br />
 
           <Link className="mx-2" style={{ "textDecoration": "none" }} to="/#"><span
-            style={{ "fontSize": "14px", "color": "black" }}>FORGOT PASSWORD?</span></Link>
+            style={{ "fontSize": "14px", "color": "black" }}>FORGOT PASSWORD?</span></Link><br/>
           <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-client"><span
-              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-Client</span></Link> <br/>
+              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-CLIENT</span></Link> <br/>
               <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-lawyer"><span
-              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-Lawyer</span></Link>
+              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-LAWYER</span></Link>
         </Form>
       </div>
       <Footer />
