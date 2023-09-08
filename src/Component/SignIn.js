@@ -42,21 +42,35 @@ const SignIn = () => {
         console.log(data, "logIn");
 
         if (data.status === "ok") {
-          alert("Client SignIn Successfully");
+          // alert("Client SignIn Successfully");
           if(data.user==='admin'){
+            alert("Admin SignIn Successfully");
             window.localStorage.setItem("usertype-admin",true)
+            window.localStorage.setItem("token", data.data);
+            window.localStorage.setItem("loggedIn", true);
+            setEmail("");
+            setPassword("");
+            navigate('/');
           }
           else if(data.user==='lawyer'){
+            alert("Lawyer SignIn Successfully");
             window.localStorage.setItem("usertype-lawyer",true)
+            window.localStorage.setItem("token", data.data);
+            window.localStorage.setItem("loggedIn", true);
+            setEmail("");
+            setPassword("");
+            navigate('/lawyerprofile');
           }
           else if(data.user==='client'){
+            alert("Client SignIn Successfully");
             window.localStorage.setItem("usertype-client",true)
+            window.localStorage.setItem("token", data.data);
+            window.localStorage.setItem("loggedIn", true);
+            setEmail("");
+            setPassword("");
+            navigate('/clientprofile');
           }
-          window.localStorage.setItem("token", data.data);
-          window.localStorage.setItem("loggedIn", true);
-          setEmail("");
-          setPassword("");
-          navigate('/clientprofile');
+         
 
         }
         else if (data.status === 'error') {
