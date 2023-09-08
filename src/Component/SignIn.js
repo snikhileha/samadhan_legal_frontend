@@ -56,7 +56,7 @@ const SignIn = () => {
           window.localStorage.setItem("loggedIn", true);
           setEmail("");
           setPassword("");
-          navigate('/');
+          navigate('/profile');
 
         }
         else if (data.status === 'error') {
