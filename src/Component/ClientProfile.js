@@ -66,6 +66,7 @@ export default function ClientProfile() {
                 </div>
 
               {/* <Link to='/editClient/:clientId'><button>Edit Your Prifile</button></Link> */}
+              <Link to={`/editClient/${data._id}`}><button>Edit Your Prifile</button></Link>
 
             </div>
             <Footer />
