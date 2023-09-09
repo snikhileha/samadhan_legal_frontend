@@ -43,7 +43,7 @@ const Footer = () => {
                             <p>I Agree To The Privacy Policy</p>
 
                             <button type="submit" className='bg-primary mx-2'
-                                style={{ "border": "none", "color": "white", "width": "60px", "height": "27px" }}>Subscribe</button>
+                                style={{ "border": "none", "color": "white", "width": "60px", "height": "27px" }}>SUBSCRIBE</button>
                             {/* <Link to="/#"><FaFacebook className='mx-2'/></Link>
                             <Link to="/#"><FaTwitter className='mx-2'/></Link>
                             <Link to="/#"><FaInstagram className='mx-2'/></Link>
