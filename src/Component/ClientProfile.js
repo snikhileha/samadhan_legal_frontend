@@ -24,6 +24,7 @@ export default function ClientProfile() {
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data, "clientData");
+                    console.log(data.data);
                     if (data.data === "token expired") {
                         alert("Token Expired. Please Sign In Again.");
                         window.localStorage.clear();

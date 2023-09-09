@@ -152,7 +152,7 @@ const SignIn = () => {
             style={{ "fontSize": "14px", "color": "black" }}>FORGOT PASSWORD?</span></Link><br/>
           <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-client"><span
               style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-CLIENT</span></Link> <br/>
-              <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-lawyer"><span
+              <Link className="mx-2" style={{ "textDecoration": "none" ,color:"blue"}} to="/signUp-lawyer"><span
               style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-LAWYER</span></Link>
         </Form>
       </div>
