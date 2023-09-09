@@ -23,21 +23,23 @@ export default function Menubar() {
     <>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/"><img src={slsLogo} style={{ 'height': '50px', "width": 'auto', "marginLeft": '50px' }} alt='compnyLogo' /></Navbar.Brand>
+          <Navbar.Brand href="/">
+            <img src={slsLogo} style={{ 'height': '50px', "width": 'auto', "marginLeft": '50px' }} alt='compnyLogo' />
+          </Navbar.Brand>
           {/* <Navbar.Brand href="#">Samadhan Legal Services</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="ms-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px'}}
+              style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link as={Link} style={{ "selfAlign": "flex-end",marginRight: '10px' }} to={"/"}>Home</Nav.Link>
-              <Nav.Link as={Link} style={{ "selfAlign": "flex-end",marginRight: '10px' }} to={"/about"}>About</Nav.Link>
+              <Nav.Link as={Link} style={{ "selfAlign": "flex-end", marginRight: '10px' }} to={"/"}>Home</Nav.Link>
+              <Nav.Link as={Link} style={{ "selfAlign": "flex-end", marginRight: '10px' }} to={"/about"}>About</Nav.Link>
               {/* <Nav.Link as={Link} to={"/clientData"}>ClientData</Nav.Link> */}
               {/* <Nav.Link as={Link} to={"/clientDetails"}>ClientDetails</Nav.Link> */}
-              {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end",marginRight: '10px' }}>ClientDetails</Nav.Link>) : null}
-              {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end" ,marginRight: '10px'}}>Profile</Nav.Link>) : null}
+              {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientDetails</Nav.Link>) : null}
+              {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>Profile</Nav.Link>) : null}
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
@@ -52,9 +54,9 @@ export default function Menubar() {
               Profile
             </Nav.Link> */}
               {/* <Button style={{"marginLeft":"20px","width":"auto","height":'40px',"backgroundColor":"orange"}}> */}
-              {auth ? (<Nav.Link as={Link} to={"/"} style={{ "selfAlign": "flex-end",marginRight: '10px' }}>
+              {auth ? (<Nav.Link as={Link} to={"/"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>
                 <button style={{ "border": "none", "color": "gray", "backgroundColor": "transparent" }} onClick={signOut}>SignOut</button>
-              </Nav.Link>) : (<Nav.Link as={Link} to={"/signin"} style={{ "selfAlign": "flex-end",marginRight: '15px' }}>SignIn</Nav.Link>)}
+              </Nav.Link>) : (<Nav.Link as={Link} to={"/signin"} style={{ "selfAlign": "flex-end", marginRight: '15px' }}>SignIn</Nav.Link>)}
 
             </Nav>
             <Form className="d-flex">
