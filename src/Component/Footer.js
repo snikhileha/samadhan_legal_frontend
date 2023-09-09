@@ -1,7 +1,9 @@
 import React from 'react';
 import '../Styles/Footer.css';
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter ,FaPhoneAlt} from 'react-icons/fa';
+import { MdEmail} from 'react-icons/md';
+import {MdArrowForward} from 'react-icons/md';
 import slsLogo from '../Images/companyLogo.png'
 
 //
@@ -14,7 +16,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="widget col-sm-4 col-md-4">
                             <img src={slsLogo} style={{ 'height': '50px', "width": 'auto', "marginLeft": '50px' }} alt='compnyLogo' />
-                            <h4>Helping Clients By Consulting And<br /> Asissting In Hiring The Best Lawyer <br /> Their Case.</h4><br />
+                            <p>Helping Clients By Consulting And<br /> Asissting In Hiring The Best Lawyer <br /> Their Case.</p><br />
                             <Link to="/#"><FaFacebook className='mx-2' /></Link>
                             <Link to="/#"><FaTwitter className='mx-2' /></Link>
                             <Link to="/#"><FaInstagram className='mx-2' /></Link>
@@ -23,6 +25,8 @@ const Footer = () => {
                         </div>
                         <div className="widget col-sm-4 col-md-2">
                             <h4>Connect</h4>
+                            <Link to='mailto:Contact@Samadhanlegal.Com'><MdEmail className='mx-2' />Contact@Samadhanlegal.Com</Link>
+                            <Link to='tel:+91 937 310 5309'> <FaPhoneAlt className='mx-2'/>+91 937 310 5309</Link>
                             {/* <Link to="/#" style={{ "textDecoration": "none", "color": "black" }}>About Us</Link><br />
                             <Link to="/#" style={{ "textDecoration": "none", "color": "black" }}>Career</Link><br />
                             <Link to="/#" style={{ "textDecoration": "none", "color": "black" }}>Blog</Link> */}
@@ -39,11 +43,11 @@ const Footer = () => {
                         <div className="widget col-sm-4 col-md-3">
                             <h4>Newsletter</h4>
                             <input type="text" required placeholder='Enter E-mail' />
-                            
+
                             <p>I Agree To The Privacy Policy</p>
 
                             <button type="submit" className='bg-primary mx-2'
-                                style={{ "border": "none", "color": "white", "width": "60px", "height": "27px" }}>SUBSCRIBE</button>
+                                style={{ "border": "none", "color": "white", "width": "60px", "height": "27px" }}>SUBSCRIBE<MdArrowForward/></button>
                             {/* <Link to="/#"><FaFacebook className='mx-2'/></Link>
                             <Link to="/#"><FaTwitter className='mx-2'/></Link>
                             <Link to="/#"><FaInstagram className='mx-2'/></Link>
@@ -55,12 +59,13 @@ const Footer = () => {
                     </div><br /><br />
 
                     <div className="row" style={{ "borderTop": "1px solid gray" }}>
+                        <div className="social col-md-4">
+                            Samadhan Legal Services © 2023. All Rights Reserved.
+                        </div>
                         <div className="copyright col-md-8">
                             Website designed and developed by <Link to="http://www.tekzoneweb.com" style={{ "textDecoration": "none", "color": "orange" }}>Tekzone Web Solutions Pvt. Ltd.</Link>
                         </div>
-                        <div className="social col-md-4">
-                            {/* link facebook */}
-                        </div>
+
                     </div>
                 </div>
             </footer>
