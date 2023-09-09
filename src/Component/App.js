@@ -36,6 +36,7 @@ function App() {
               <Route path="/editClient/:clientId" element={<EditClient />} />
             </Route>
           </Route>
+          <Route path="/editClient/:clientId" element={<EditClient />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signUp-client" element={<SignUpClient />} />
           <Route path="/signUp-lawyer" element={<SignUpLawyer />} />
