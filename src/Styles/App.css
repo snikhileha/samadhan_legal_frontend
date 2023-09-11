@@ -6,13 +6,42 @@
     
 }
 
-.profile{
-    border: 1px solid black;
-    height: 85vh;
-    width: 70vh;
-    margin: 10vh 70vh 10vh 70vh;
-    padding: 10vh;
+.profile {
+  border: 1px solid black;
+  padding: 2rem; /* Add padding to create space around the content */
+  max-width: 90%; /* Increase the maximum width to 90% of its parent container */
+  margin: 2rem auto; /* Center the div horizontally */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  width: 60%; /* Set a width of 90% relative to its parent container */
 }
+
+/* Media query for screens smaller than 576px (e.g., mobile phones) */
+@media (max-width: 575px) {
+  .profile {
+    padding: 1rem; /* Reduce padding for smaller screens */
+    margin: 0; /* Set margin to 0 for screens 575px and below */
+    width: 90%;
+    
+  }
+}
+
+/* Media query for screens between 576px and 768px (e.g., tablets) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .profile {
+    max-width: 90%; 
+    width: 90%;
+    margin:5px/* Adjust max-width for tablets */
+  }
+}
+
+/* Media query for screens larger than 768px (e.g., desktops) */
+@media (min-width: 769px) {
+  .profile {
+    max-width: 70%; /* Adjust max-width for larger screens */
+  }
+}
+
+
 table,th,tr,td,tbody,thead{
     border: 1px solid gray;
     background-color:rgb(248, 243, 243);
@@ -22,28 +51,54 @@ table,th,tr,td,tbody,thead{
 
 }
 .dataInfo {
-  margin: 50px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
+  overflow-x: auto; /* Allow horizontal scrolling for small screens */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
 }
 
-.header-row {
+/* Add responsive styles for buttons */
+.dataInfo .text-end {
   display: flex;
-  justify-content: space-around;
-  font-weight: bold;
-  padding: 8px;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 15px;
 }
 
-.data-row {
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid #ccc;
-  padding: 8px;
+/* Style the table for responsiveness */
+.dataInfo .table-responsive {
+  overflow-x: auto; /* Enable horizontal scrolling for the table */
+  max-width: 100%; /* Ensure the table doesn't overflow its container */
 }
 
-.data-row:last-child {
-  border-bottom: none;
+/* Adjust the table style as needed for smaller screens */
+.dataInfo table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
+
+.dataInfo th,
+.dataInfo td {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Customize column widths if necessary */
+.dataInfo th:nth-child(1),
+.dataInfo td:nth-child(1) {
+  width: 10%;
+}
+
+.dataInfo th:nth-child(2),
+.dataInfo td:nth-child(2) {
+  width: 10%;
+}
+
+/* Add any other custom styling you need */
+
 .HomePage1{
   display: flex;
   flex-direction: column;

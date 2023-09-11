@@ -13,7 +13,7 @@ export default function SignUpLawyer() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
-    const [isEmail,setIsEmail] = useState(false);
+    const [isEmail, setIsEmail] = useState(false);
     // const [userType, setUserType] = useState("client");
     // const [secretKey, setSecretKey] = useState("");
     const [experience, setExperience] = useState("");
@@ -71,100 +71,100 @@ export default function SignUpLawyer() {
 
         // }
         // else if (userType === 'client') {
-            // e.preventDefault();
-            // // console.log(image,image.name);
-            // let formData = new FormData();
-            // formData.append("image", image);
-            // formData.append("name", name);
-            // formData.append("email", email);
-            // // formData.append("user", userType);
-            // formData.append("password", password);
-           
+        // e.preventDefault();
+        // // console.log(image,image.name);
+        // let formData = new FormData();
+        // formData.append("image", image);
+        // formData.append("name", name);
+        // formData.append("email", email);
+        // // formData.append("user", userType);
+        // formData.append("password", password);
 
 
-            // await fetch("http://localhost:5000/signUp-client", {
-            //     method: "POST",
-            //     crossDomain: true,
 
-            //     body: formData
+        // await fetch("http://localhost:5000/signUp-client", {
+        //     method: "POST",
+        //     crossDomain: true,
 
-
-            // })
-            //     .then((res) => res.json())
-            //     .then((data) => {
-            //         console.log(data, "clientRegister");
-
-            //         if (data.message === "Client created successfully") {
-            //             alert("Client Registered Successfully");
-            //             setName("");
-            //             setEmail("");
-            //             setPassword("");
-            //             navigate('/signIn');
-            //         } else if (data.error === 'Client Exists') {
-            //             alert("Client Already Exists");
-            //         } else {
-            //             alert("Something went wrong");
-            //         }
+        //     body: formData
 
 
-            //     });
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         console.log(data, "clientRegister");
+
+        //         if (data.message === "Client created successfully") {
+        //             alert("Client Registered Successfully");
+        //             setName("");
+        //             setEmail("");
+        //             setPassword("");
+        //             navigate('/signIn');
+        //         } else if (data.error === 'Client Exists') {
+        //             alert("Client Already Exists");
+        //         } else {
+        //             alert("Something went wrong");
+        //         }
+
+
+        //     });
 
         // }
         // else if (userType === 'lawyer') {
 
-            e.preventDefault();
-            let formData = new FormData();
-            formData.append("image", image);
-            formData.append("name", name);
-            formData.append("email", email);
-            // formData.append("user", userType);
-            formData.append("password", password);
-            formData.append("catagory", catagory);
-            formData.append("experience", experience);
-            formData.append("degree", degree);
-            if(isEmail){
-                await fetch("https://samadhan-legal-services.onrender.com/signUp-lawyer", {
-                    method: "POST",
-                    crossDomain: true,
-    
-                    body: formData,
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data, "lawyerRegister");
-    
-                        if (data.message === "Lawyer created successfully") {
-                            alert("Lawyer Registered Successfully");
-                            setName("");
-                            setEmail("");
-                            setPassword("");
-                            navigate('/signIn');
-                        } else if (data.error === 'Lawyer Exists') {
-                            alert("Lawyer Already Exists");
-                        } else {
-                            alert("Something went wrong");
-                        }
-    
-    
-                    });
-    
-            }else{
-                alert("Invalid Email Id");
-             }
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append("image", image);
+        formData.append("name", name);
+        formData.append("email", email);
+        // formData.append("user", userType);
+        formData.append("password", password);
+        formData.append("catagory", catagory);
+        formData.append("experience", experience);
+        formData.append("degree", degree);
+        if (isEmail) {
+            await fetch("https://samadhan-legal-services.onrender.com/signUp-lawyer", {
+                method: "POST",
+                crossDomain: true,
 
-           
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data, "lawyerRegister");
+
+                    if (data.message === "Lawyer created successfully") {
+                        alert("Lawyer Registered Successfully");
+                        setName("");
+                        setEmail("");
+                        setPassword("");
+                        navigate('/signIn');
+                    } else if (data.error === 'Lawyer Exists') {
+                        alert("Lawyer Already Exists");
+                    } else {
+                        alert("Something went wrong");
+                    }
+
+
+                });
+
+        } else {
+            alert("Invalid Email Id");
+        }
+
+
         // }
 
-}
+    }
     const handleImage = (e) => {
         setImage(e.target.files[0]);
     }
-    const emailValidation=()=>{
+    const emailValidation = () => {
         const regex = /[A-Za-z0-9_/-/.]+[@][a-z]+[/.][a-z]{2,3}/
-        if(!regex.test(email)){
+        if (!regex.test(email)) {
             setMessage("Invalid Email");
-            
-        }else{
+
+        } else {
             setMessage('');
             setIsEmail(true);
         }
@@ -173,89 +173,38 @@ export default function SignUpLawyer() {
     return (
         <>
             <Menubar />
-            <div className='signUp'>
-                <Form onSubmit={handleSubmit}
-                    encType="multipart/form-data"
+            <div className='container-fluid d-flex align-items-center justify-content-center min-vh-100'>
+                {/* <div className="row justify-content-center"> */}
+                    {/* <div className=" col-sm-6 col-md-6 col-lg-3 my-3"> */}
+                        <div className="signUp my-4 mx-5" style={{height:"130vh"}}>
+                            <h1 className="text-center">SignUp</h1>
+                            <Form onSubmit={handleSubmit} encType="multipart/form-data" method="post">
+                                {/* Your form content here                    <h1>SignUp</h1> */}
 
-                    method="post"
+                                <Form.Group className="mb-3" controlId="formBasicImage">
+                                    <Form.Label>Image</Form.Label>
+                                    <Form.Control type="file"
+                                        name='image'
+                                        onChange={handleImage} />
 
-                >
-                    <h1>SignUp</h1>
-                    {/* <lable>Admin: </lable>
-                    <input type="radio"
-                        required
-                        value='admin'
-                        name='user'
-                        className='mx-2'
-                        checked={userType === 'admin'}
-                        onChange={(e) => setUserType(e.target.value)} />
+                                </Form.Group>
 
-                    <lable>Lawyer: </lable>
-                    <input type="radio"
-                        required
-                        value='lawyer'
-                        name='user'
-                        className='mx-2'
-                        checked={userType === 'lawyer'}
-                        onChange={(e) => setUserType(e.target.value)} />
+                                <Form.Group className="mb-3" controlId="formBasicName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text"
+                                        value={name}
+                                        name='name'
+                                        required
+                                        onChange={(e) => setName(e.target.value)}
+                                        placeholder="Enter name" />
 
+                                </Form.Group>
 
-                    <lable>Client: </lable>
-                    <input type="radio"
-                        required
-                        value='client'
-                        name='user'
-                        className='mx-2'
-                        checked={userType === 'client'}
-                        onChange={(e) => setUserType(e.target.value)} />
-                    <br /><br />
-
-                    {userType === 'admin' ?
-
-                        <Form.Group className="mb-3" controlId="formBasicSecretKey">
-                            <Form.Label>Secret Key</Form.Label>
-                            <Form.Control type="text"
-                                name="secretKey"
-                                required
-                                value={secretKey}
-                                className='mx-2'
-                                onChange={(e) => setSecretKey(e.target.value)}
-                                placeholder="Enter Secret Key" />
-
-                        </Form.Group>
-                        : null} */}
-
-
-                    <Form.Group className="mb-3" controlId="formBasicImage">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="file"
-                            name='image'
-                            className='mx-2'
-                            onChange={handleImage} />
-
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text"
-                            value={name}
-                            name='name'
-                            required
-                            className='mx-2'
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Enter name" />
-
-                    </Form.Group>
-                    {/* {userType === 'lawyer' ?
-
-                        (
-                            <> */}
                                 <Form.Group className="mb-3" controlId="formBasicExperience">
                                     <Form.Label>Experience</Form.Label>
                                     <Form.Control type="text"
                                         required
                                         value={experience}
-                                        className='mx-2'
                                         name='experience'
                                         onChange={(e) => setExperience(e.target.value)}
                                         placeholder="Experience" />
@@ -266,7 +215,6 @@ export default function SignUpLawyer() {
                                     <Form.Control type="text"
                                         required
                                         value={degree}
-                                        className='mx-2'
                                         name="degree"
                                         onChange={(e) => setDegree(e.target.value)}
                                         placeholder="Degree" />
@@ -277,47 +225,48 @@ export default function SignUpLawyer() {
                                     <Form.Control type="text"
                                         required
                                         value={catagory}
-                                        className='mx-2'
                                         name='catagory'
                                         onChange={(e) => setCatagory(e.target.value)}
                                         placeholder="Catagory" />
 
                                 </Form.Group>
-                            {/* </>
-                        )
-                        : null} */}
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email"
-                            value={email}
-                            name='email'
-                            required
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text><br/>
-                        <Form.Text style={{color:"red"}}>
-                            {message}
-                        </Form.Text>
-                    </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password"
-                            required
-                            name='password'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Password" />
-                    </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control type="email"
+                                        value={email}
+                                        name='email'
+                                        required
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Enter email" />
+                                    <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
+                                    </Form.Text><br />
+                                    <Form.Text style={{ color: "red" }}>
+                                        {message}
+                                    </Form.Text>
+                                </Form.Group>
 
-                    <Button variant="primary" onClick={emailValidation} type="submit">Submit</Button><br /><br />
-                    Already signUp
-                    <Link to='/signIn' className='mx-4' style={{ "textDecoration": "none", "color": "orange" }}>SignIn</Link>
-                </Form>
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password"
+                                        required
+                                        name='password'
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Password" />
+                                </Form.Group>
+
+                                <Button variant="primary" onClick={emailValidation} type="submit">Submit</Button><br /><br />
+                                Already signUp
+                                <Link to='/signIn' className='mx-4' style={{ "textDecoration": "none", "color": "orange" }}>SignIn</Link>
+                            </Form>
+                        </div>
+                    {/* </div> */}
+                {/* </div> */}
             </div>
+
             <Footer />
         </>
     )

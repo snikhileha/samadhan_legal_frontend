@@ -14,9 +14,10 @@ import PrivateCompo from './PrivateCompo.js';
 import ClientDetails from './ClientDetails.js';
 import ClientInfo from './ClientInfo.js';
 import EditClient from './EditClient.js';
+import EditClientProfile from './EditClientProfile.js';
 import LawyersInfo from './LawyersInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+// import SharedComponent from './SharedComponent.js';
 function App() {
 
   return (
@@ -33,10 +34,10 @@ function App() {
             <Route element={<LawyerCompo />}> </Route>
             <Route element={<ClientCompo />}>
               <Route path="/clientprofile" element={<ClientProfile />} />
-              <Route path="/editClient/:clientId" element={<EditClient />} />
+              <Route path="/editClientProfile/:clientId" element={<EditClientProfile />} />
             </Route>
           </Route>
-          <Route path="/editClient/:clientId" element={<EditClient />} />
+          {/* <Route path="/editClient/:clientId" element={<EditClient />} /> */}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signUp-client" element={<SignUpClient />} />
           <Route path="/signUp-lawyer" element={<SignUpLawyer />} />

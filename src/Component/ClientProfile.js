@@ -1,75 +1,99 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate ,Link} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Menubar from './Menubar';
 import Footer from './Footer';
 
 export default function ClientProfile() {
-    const [data, setData] = useState([]);
-    const navigate = useNavigate();
-    const token = window.localStorage.getItem('token');
+  const [data, setData] = useState(null);
+  const navigate = useNavigate();
+  const token = window.localStorage.getItem('token');
 
-    useEffect(() => {
-        const viewProfile = () => {
-            fetch("https://samadhan-legal-services.onrender.com/profile", {
-                method: "POST",
-                crossDomain: true,
-                headers: {
-                    "Content-Type": "application/json",
-                    // ... other headers
-                },
-                body: JSON.stringify({
-                    token: window.localStorage.getItem('token')
-                }),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data, "clientData");
-                    console.log(data.data);
-                    if (data.data === "token expired") {
-                        alert("Token Expired. Please Sign In Again.");
-                        window.localStorage.clear();
-                        navigate('/');
-                    } else {
-                        setData(data.data);
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error fetching profile data:", error);
-                    // Handle the error, maybe show an error message to the user
-                });
-        };
+  useEffect(() => {
+    const viewProfile = () => {
+      fetch("https://samadhan-legal-services.onrender.com/profile", {
+        method: "POST",
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+          // ... other headers
+        },
+        body: JSON.stringify({
+          token: window.localStorage.getItem('token')
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((response) => {
+          console.log(response, "clientData");
 
-        if (token) {
-            viewProfile();
-        }
+          if (response.status === 'ok' && response.data !== null) {
+            // Valid response format, proceed with displaying the data
+            setData(response.data);
+          } else if (response.status === 'ok' && response.data === null) {
+            // Handle the case when the server returns null data
+            console.error("User data is null.");
+            // Display an appropriate message to the user
+          } else {
+            // Handle other unexpected response formats
+            console.error("Unexpected response format:", response);
+            // Display an appropriate message to the user or take another action
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching profile data:", error);
+          // Handle the error, maybe show an error message to the user
+        });
+    };
 
-    }, [token, navigate]);
+    if (token) {
+      viewProfile();
+    } else {
+      // Handle the case when there's no token, maybe redirect to login
+      navigate('/');
+    }
 
-    return (
-        <>
-            <Menubar />
-            <div className='profile'>
-            <div class="d-flex justify-content-end">
-                    <Link to="/clientDetails"><button className=" float-end" style={{ border: "none", padding: "4px" }}>Back
-                        {/* <img style={{ borderRadius: '50%', width: '35px', height: '35px', objectFit: 'cover'}}src={prs} alt="back"/> */}
-                    </button></Link>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
-                <img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
-                    src={`https://samadhan-legal-services.onrender.com/${data?.image}`} alt='profile' />
-                    </div><br/><br/>
-                    <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
-                    <h4 style={{ display: "inline" }}>Name: </h4>
-                    <h3 style={{ display: "inline" }}>{data.name}</h3><br />
-                    <h4 style={{ display: "inline" }}>Email: </h4>
-                    <h3 style={{ display: "inline" }}>{data.email}</h3>
-                </div><br/><br/>
+  }, [token, navigate]);
 
-              {/* <Link to='/editClient/:clientId'><button>Edit Your Prifile</button></Link> */}
-              <Link to={`/editClient/${data._id}`}><button>Edit Your Prifile</button></Link>
-
+  return (
+    <>
+      <Menubar />
+      <div className='profile container' style={{ maxWidth: "800px", width: " 60%", margin: "50px auto" }}>
+        <div className="d-flex justify-content-end">
+          <Link to="/clientDetails">
+            <button className="float-end" style={{ border: "none", padding: "4px" }}>Back</button>
+          </Link>
+        </div>
+        {data ? (
+          <>
+            <div className="text-center">
+              <img
+                className="rounded-circle"
+                src={`https://samadhan-legal-services.onrender.com/${data?.image}`}
+                alt='profile'
+                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+              />
             </div>
-            <Footer />
-        </>
-    )
+            <br /><br />
+            <div className=" col-sm-12 text-center">
+              <h4>Name: {data.name}</h4>
+              <h5>Email: {data.email}</h5>
+            </div>
+            <br /><br />
+            {data._id && (
+              <div className="text-center">
+                <Link to={`/editClientProfile/${data._id}`}>Edit Profile</Link>
+              </div>
+            )}
+          </>
+        ) : (
+          <p>Loading profile data...</p>
+        )}
+      </div>
+      <Footer />
+    </>
+  )
 }

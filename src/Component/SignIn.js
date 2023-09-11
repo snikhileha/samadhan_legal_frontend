@@ -43,34 +43,34 @@ const SignIn = () => {
 
         if (data.status === "ok") {
           // alert("Client SignIn Successfully");
-          if(data.user==='admin'){
+          if (data.user === 'admin') {
             alert("Admin SignIn Successfully");
-            window.localStorage.setItem("usertype-admin",true)
+            window.localStorage.setItem("usertype-admin", true)
             window.localStorage.setItem("token", data.data);
             window.localStorage.setItem("loggedIn", true);
             setEmail("");
             setPassword("");
             navigate('/');
           }
-          else if(data.user==='lawyer'){
+          else if (data.user === 'lawyer') {
             alert("Lawyer SignIn Successfully");
-            window.localStorage.setItem("usertype-lawyer",true)
+            window.localStorage.setItem("usertype-lawyer", true)
             window.localStorage.setItem("token", data.data);
             window.localStorage.setItem("loggedIn", true);
             setEmail("");
             setPassword("");
             navigate('/lawyerprofile');
           }
-          else if(data.user==='client'){
+          else if (data.user === 'client') {
             alert("Client SignIn Successfully");
-            window.localStorage.setItem("usertype-client",true)
+            window.localStorage.setItem("usertype-client", true)
             window.localStorage.setItem("token", data.data);
             window.localStorage.setItem("loggedIn", true);
             setEmail("");
             setPassword("");
             navigate('/clientprofile');
           }
-         
+
 
         }
         else if (data.status === 'error') {
@@ -93,69 +93,60 @@ const SignIn = () => {
   return (
     <>
       <Menubar />
-      <div className="signIn">
-        <h1>SignIn</h1>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            {/* <lable>Admin: </lable>
-            <input type="radio"
-              required
-              value='admin'
-              name='user'
-              className='mx-2'
-              checked={userType === 'admin' }
-              // onClick={()=>window.localStorage.setItem("usertype-admin",true)}
-              onChange={(e) => setUserType(e.target.value)} />
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-8 col-sm-12">
+            <div className="signIn">
+              <h1 className="text-center">SignIn</h1>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label className="my-4">Email address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={email}
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter email"
+                  />
+                </Form.Group>
 
-            <lable>Lawyer: </lable>
-            <input type="radio"
-              required
-              value='lawyer'
-              name='user'
-              className='mx-2'
-              checked={userType === 'lawyer' }
-              // onClick={()=>window.localStorage.setItem("usertype-lawyer",true)}
-              onChange={(e) => setUserType(e.target.value)} />
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    value={password}
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                  />
+                </Form.Group><br/>
+                <div className="text-center">
+                <Button variant="primary" type="submit" style={{width:"230px"}}>
+                  Submit
+                </Button>
+                </div>
+                <br />
+                 <div className="text-center">
+                <Link className="mx-2" style={{ textDecoration: "none" }} to="/#">
+                  <span style={{ fontSize: "14px", color: "black" }}>FORGOT PASSWORD?</span>
+                </Link>
+                <br />
 
+                <Link className="mx-2" style={{ textDecoration: "none" }} to="/signUp-client">
+                  <span style={{ fontSize: "14px", color: "black" }}>CREATE NEW ACCOUNT-CLIENT</span>
+                </Link>
+                <br />
 
-            <lable>User: </lable>
-            <input type="radio"
-              required
-              value='client'
-              name='user'
-              className='mx-2'
-              checked={userType === 'client' }
-              // onClick={()=>window.localStorage.setItem("usertype-client",true)}
-              onChange={(e) => setUserType(e.target.value)} /><br /><br /> */}
-
-            <Form.Label className='my-4'>Email address</Form.Label>
-            <Form.Control type="email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter email" />
-
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password" />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">Submit</Button><br /><br />
-
-          <Link className="mx-2" style={{ "textDecoration": "none" }} to="/#"><span
-            style={{ "fontSize": "14px", "color": "black" }}>FORGOT PASSWORD?</span></Link><br/>
-          <Link className="mx-2" style={{ "textDecoration": "none" }} to="/signUp-client"><span
-              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-CLIENT</span></Link> <br/>
-              <Link className="mx-2" style={{ "textDecoration": "none" ,color:"blue"}} to="/signUp-lawyer"><span
-              style={{ "fontSize": "14px", "color": "black" }}>CREATE NEW ACCOUNT-LAWYER</span></Link>
-        </Form>
+                <Link className="mx-2" style={{ textDecoration: "none", color: "blue" }} to="/signUp-lawyer">
+                  <span style={{ fontSize: "14px", color: "black" }}>CREATE NEW ACCOUNT-LAWYER</span>
+                </Link>
+                </div>
+              </Form>
+            </div>
+          </div>
+        </div>
       </div>
+
       <Footer />
     </>
 

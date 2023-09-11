@@ -1,8 +1,25 @@
-.signIn{
-    border:1px solid gray;
-    height: 75vh;
-    width: 80vh;
-    margin: 10vh 70vh 10vh 70vh;
-    padding: 10vh;
+.signIn {
+    border: 1px solid gray;
+    height: 75vh; /* Keep the height relative to the viewport height */
+    width: 60%; /* Set the width to a percentage of the parent container */
+    max-width: 800px; /* Add a max-width to prevent it from becoming too wide */
+    margin: 10vh auto; /* Center the div vertically and horizontally */
+    padding: 2rem; /* Add padding to create space around the content */
+    box-sizing: border-box; /* Include padding and border in the total width */
+}
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .signIn {
+        width: 90%; /* Adjust the width for smaller screens */
+        max-width: none; /* Remove max-width on smaller screens */
+    }
+}
+@media (min-width: 769px) and (max-width: 994px) {
+    /* Your CSS styles for this screen range go here */
+    .signIn {
+        width: 90%; /* Adjust the width for smaller screens */
+        max-width: none; /* Remove max-width on smaller screens */
+
+    }
 }

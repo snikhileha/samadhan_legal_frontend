@@ -25,14 +25,15 @@ export default function HomePage1() {
     return (
         <div className='HomePage1'>
             <div className="row">
-                <div className="col-md-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <h2><strong>Find Your Legal Aid For All  </strong></h2>
-                    <h4><strong>Your Civil And Corporate Needs</strong></h4>
-                    <Link to="/signUp-lawyer">
-                        <button  className="my-2" style={{ width: "200px", height: "35px",border:"none", backgroundColor: "#6bc9cf" }}>GET Started</button>
-                        </Link>
-                </div>
-                <div className="col-md-6">
+            <div className="col-md-5 mx-3 my-5 d-flex flex-column align-items-center justify-content-center text-center">
+  <h2><strong>Find Your Legal Aid For All</strong></h2>
+  <h4><strong>Your Civil And Corporate Needs</strong></h4>
+  <Link to="/signUp-lawyer">
+    <button className="my-2" style={{ width: "200px", height: "35px", border: "none", backgroundColor: "#6bc9cf" }}>GET Started</button>
+  </Link>
+</div>
+
+                <div className="col-md-6 ">
                     <h2 style={{textAlign:"center",margin:"20px"}}>Lawyer Info</h2>
                     <div className="widget row-md-4 lawyerInfo">
 
