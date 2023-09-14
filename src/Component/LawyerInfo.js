@@ -68,6 +68,12 @@ export default function LawyerInfo() {
                     <h3 style={{ display: "inline" }}>{data.name}</h3><br />
                     <h4 style={{ display: "inline" }}>Email: </h4>
                     <h5 style={{ display: "inline" }}>{data.email}</h5>
+                    <h4 style={{ display: "inline" }}>Experience: </h4>
+                    <h5 style={{ display: "inline" }}>{data.experience}</h5>
+                    <h4 style={{ display: "inline" }}>Degree: </h4>
+                    <h5 style={{ display: "inline" }}>{data.degree}</h5>
+                    <h4 style={{ display: "inline" }}>Catagory: </h4>
+                    <h5 style={{ display: "inline" }}>{data.catagory}</h5>
                 </div>
 
 

@@ -56,11 +56,14 @@
   flex-basis: calc(33.33% - 10px); /* Adjust the width based on your requirements */
   margin: 5px;
 }
-@media (max-width: 600px) {
+@media (max-width: 770px) {
   .table-responsive {
-    overflow-x: auto;
+    
+    margin: 0;
+    padding: 0;
   }
   .table-responsive table {
     width: 100%;
+    margin: 0;
   }
 }
