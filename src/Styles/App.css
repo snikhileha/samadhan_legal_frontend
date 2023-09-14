@@ -42,62 +42,6 @@
 }
 
 
-table,th,tr,td,tbody,thead{
-    border: 1px solid gray;
-    background-color:rgb(248, 243, 243);
-    padding: 2vh;
-    margin: 10vh 70vh 10vh 70vh;
-
-
-}
-.dataInfo {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  overflow-x: auto; /* Allow horizontal scrolling for small screens */
-  align-items: center; /* Center content horizontally */
-  justify-content: center; /* Center content vertically */
-}
-
-/* Add responsive styles for buttons */
-.dataInfo .text-end {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-bottom: 15px;
-}
-
-/* Style the table for responsiveness */
-.dataInfo .table-responsive {
-  overflow-x: auto; /* Enable horizontal scrolling for the table */
-  max-width: 100%; /* Ensure the table doesn't overflow its container */
-}
-
-/* Adjust the table style as needed for smaller screens */
-.dataInfo table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.dataInfo th,
-.dataInfo td {
-  padding: 8px;
-  text-align: center;
-}
-
-/* Customize column widths if necessary */
-.dataInfo th:nth-child(1),
-.dataInfo td:nth-child(1) {
-  width: 10%;
-}
-
-.dataInfo th:nth-child(2),
-.dataInfo td:nth-child(2) {
-  width: 10%;
-}
-
-/* Add any other custom styling you need */
 
 .HomePage1{
   display: flex;
@@ -111,4 +55,12 @@ table,th,tr,td,tbody,thead{
 .cardItem {
   flex-basis: calc(33.33% - 10px); /* Adjust the width based on your requirements */
   margin: 5px;
+}
+@media (max-width: 600px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .table-responsive table {
+    width: 100%;
+  }
 }

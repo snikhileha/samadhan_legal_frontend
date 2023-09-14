@@ -7,17 +7,17 @@ import Footer from './Footer';
 import { useNavigate,Link, useParams } from 'react-router-dom';
 // import { FaForward } from 'react-icons/fa';
 
-export default function EditClientProfile() {
+export default function EditLawyerProfile() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState(null);
   const [previewImage, setPreviewImage] = useState('');
 
   const navigate = useNavigate();
-  const { clientId } = useParams();
+  const { lawyerId } = useParams();
   useEffect(() => {
     const getClient = async () => {
-        let result = await fetch(`https://samadhan-legal-services.onrender.com/getClient/${clientId}`);
+        let result = await fetch(`https://samadhan-legal-services.onrender.com/getLawyer/${lawyerId}`);
         result = await result.json();
 
         setName(result.data.name);
@@ -28,7 +28,7 @@ export default function EditClientProfile() {
 
     getClient(); // Call the function immediately
 
-}, [clientId]); // Add clientId to the dependency array
+}, [lawyerId]); // Add clientId to the dependency array
 
   // useEffect(() => {
   //   getClient();
@@ -55,14 +55,14 @@ export default function EditClientProfile() {
     }
     // console.log(formData);
 
-    let result = await fetch(`https://samadhan-legal-services.onrender.com/editClient/${clientId}`, {
+    let result = await fetch(`https://samadhan-legal-services.onrender.com/editlawyer/${lawyerId}`, {
       method: 'PUT',
       body: formData,
     });
     result = await result.json();
     console.log(result);
 
-    navigate('/clientprofile');
+    navigate('/lawyerprofile');
   };
 
   const handleImage = (e) => {
@@ -75,7 +75,7 @@ export default function EditClientProfile() {
       <Menubar />
       <div className="signUp">
       <div class="d-flex justify-content-end">
-        <Link to="/clientprofile">
+        <Link to="/lawyerprofile">
           <button style={{border:"none",padding:"5px"}}>
           {/* <FaForward className='mx-2'/> */}
           Back

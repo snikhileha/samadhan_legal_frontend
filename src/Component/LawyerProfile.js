@@ -3,14 +3,14 @@ import { useNavigate, Link } from 'react-router-dom';
 import Menubar from './Menubar';
 import Footer from './Footer';
 
-export default function ClientProfile() {
+export default function LawyerProfile() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
   const token = window.localStorage.getItem('token');
 
   useEffect(() => {
     const viewProfile = () => {
-      fetch("https://samadhan-legal-services.onrender.com/clientProfile", {
+      fetch("https://samadhan-legal-services.onrender.com/lawyerProfile", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -28,7 +28,7 @@ export default function ClientProfile() {
           return res.json();
         })
         .then((response) => {
-          console.log(response, "clientData");
+          console.log(response, "lawyerData");
 
           if (response.status === 'ok' && response.data !== null) {
             // Valid response format, proceed with displaying the data
@@ -85,7 +85,7 @@ export default function ClientProfile() {
             <br /><br />
             {data._id && (
               <div className="text-center">
-                <Link to={`/editClientProfile/${data._id}`}>Edit Profile</Link>
+                <Link to={`/editLawyerProfile/${data._id}`}>Edit Profile</Link>
               </div>
             )}
           </>

@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
 import slsLogo from '../Images/companyLogo.png'
@@ -14,6 +14,7 @@ export default function Menubar() {
   let auth = localStorage.getItem('loggedIn');
   let admin = localStorage.getItem('usertype-admin');
   let client = localStorage.getItem('usertype-client');
+  let lawyer =  localStorage.getItem('usertype-lawyer');
   let navigate = useNavigate();
   const signOut = () => {
     localStorage.clear();
@@ -38,18 +39,18 @@ export default function Menubar() {
               <Nav.Link as={Link} style={{ "selfAlign": "flex-end", marginRight: '10px' }} to={"/about"}>About</Nav.Link>
               {/* <Nav.Link as={Link} to={"/clientData"}>ClientData</Nav.Link> */}
               {/* <Nav.Link as={Link} to={"/clientDetails"}>ClientDetails</Nav.Link> */}
-              {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientDetails</Nav.Link>) : null}
-              {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>Profile</Nav.Link>) : null}
-              {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
+              {/* {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientDetails</Nav.Link>) : null} */}
+              {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientProfile</Nav.Link>) : null}
+              {lawyer ? (<Nav.Link as={Link} to={"/lawyerprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>LawyerProfile</Nav.Link>) : null}
+              {admin ? (<NavDropdown title="UserDetails" id="navbarScrollingDropdown">
+                <NavDropdown.Item as={Link} to={"/adminDetails"}>AdminDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/clientDetails"}>ClientDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/lawyerDetails"}>LawyerDetails</NavDropdown.Item>
+                {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">
                   Something else here
-                </NavDropdown.Item>
-              </NavDropdown> */}
+                </NavDropdown.Item> */}
+              </NavDropdown>): null}
               {/* <Nav.Link as={Link} to={"/profile"}>
               Profile
             </Nav.Link> */}
