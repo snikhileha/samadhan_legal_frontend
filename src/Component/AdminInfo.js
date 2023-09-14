@@ -53,7 +53,7 @@ export default function AdminInfo() {
             <div className='container-fluid d-flex align-items-center justify-content-center vh-100'>
             <div className='profile' style={{ maxWidth: "800px", width: " 60%", margin: "50px auto" }}>
                 <div class="d-flex justify-content-end">
-                    <Link to="/clientDetails"><button className=" float-end" style={{ border: "none", padding: "4px" }}>Back
+                    <Link to="/adminDetails"><button className=" float-end" style={{ border: "none", padding: "4px" }}>Back
                         {/* <img style={{ borderRadius: '50%', width: '35px', height: '35px', objectFit: 'cover'}}src={prs} alt="back"/> */}
                     </button></Link>
                 </div>
