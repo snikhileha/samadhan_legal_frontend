@@ -50,7 +50,7 @@ export default function LawyerInfo() {
     return (
         <>
             <Menubar />
-            <div className='container-fluid d-flex align-items-center justify-content-center vh-100'>
+            <div className='container-fluid d-flex  vh-100'>
             <div className='profile' style={{ maxWidth: "800px", width: " 60%", margin: "50px auto" }}>
                 <div class="d-flex justify-content-end">
                     <Link to="/lawyerDetails"><button className=" float-end" style={{ border: "none", padding: "4px" }}>Back
