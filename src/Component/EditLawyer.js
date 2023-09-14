@@ -85,7 +85,7 @@ export default function EditLawyer() {
             <div className='container-fluid d-flex align-items-center justify-content-center min-vh-100'>
                 <div className="signUp">
                     <div class="d-flex justify-content-end">
-                        <Link to="/clientDetails">
+                        <Link to="/lawyerDetails">
                             <button style={{ border: "none", padding: "5px" }}>
                                 {/* <FaForward className='mx-2'/> */}
                                 Back
