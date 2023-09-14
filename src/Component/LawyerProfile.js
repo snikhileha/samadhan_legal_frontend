@@ -83,11 +83,11 @@ export default function LawyerProfile() {
               <h5>Email: {data.email}</h5>
             </div>
             <br /><br />
-            {data._id && (
+            {/* {data._id && (
               <div className="text-center">
                 <Link to={`/editLawyerProfile/${data._id}`}>Edit Profile</Link>
               </div>
-            )}
+            )} */}
           </>
         ) : (
           <p>Loading profile data...</p>
