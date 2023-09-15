@@ -8,6 +8,8 @@ export default function ClientProfile() {
   const navigate = useNavigate();
   const token = window.localStorage.getItem('token');
 
+
+
   useEffect(() => {
     const viewProfile = () => {
       fetch("https://samadhan-legal-services.onrender.com/clientProfile", {
@@ -57,7 +59,7 @@ export default function ClientProfile() {
     }
 
   }, [token, navigate]);
-
+  
   return (
     <>
       <Menubar />
@@ -78,16 +80,18 @@ export default function ClientProfile() {
               />
             </div>
             <br /><br />
-            <div className=" col-sm-12 text-center">
-              <h4>Name: {data.name}</h4>
-              <h5>Email: {data.email}</h5>
-            </div>
+            <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+                    <h4 style={{ display: "inline" }}>Name: </h4>
+                    <h3 style={{ display: "inline" }}>{data.name}</h3><br />
+                    <h4 style={{ display: "inline" }}>Email: </h4>
+                    <h5 style={{ display: "inline" }}>{data.email}</h5>
+                </div>
             <br /><br />
-            {/* {data._id && (
+            {data._id && (
               <div className="text-center">
                 <Link to={`/editClientProfile/${data._id}`}>Edit Profile</Link>
               </div>
-            )} */}
+            )}
           </>
         ) : (
           <p>Loading profile data...</p>

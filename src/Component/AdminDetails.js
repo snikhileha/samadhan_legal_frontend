@@ -41,7 +41,7 @@ export default function AdminDetails() {
         <>
             <Menubar />
             <div className="text-end my-3 mx-5">
-                <Link to="/signUp-admin" className="btn btn-primary mx-5 mb-3">Add Client</Link>
+                <Link to="/signUp-admin" className="btn btn-primary mx-5 mb-3">Add Admin</Link>
             </div>
             <div className="container">
                 <div className="row">

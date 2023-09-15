@@ -40,8 +40,8 @@ const Footer = () => {
                         <div className="widget col-xs-12 col-sm-6 col-md-4 col-lg-3 my-3">
                             <h4 style={{ marginBottom: "20px" }}>Connect</h4>
                             <h6>Address :</h6>
-                            <Link to='mailto:Contact@Samadhanlegal.Com' style={{ color: 'inherit', textDecoration: "none",fontSize:"15px"}}><MdEmail />Contact@Samadhanlegal.Com</Link><br/>
-                            <Link to='tel:+91 937 310 5309' style={{ color: 'inherit', textDecoration: "none" ,fontSize:"16px"}}> <FaPhoneAlt/>+91 937 310 5309</Link>
+                            <Link to='mailto:Contact@Samadhanlegal.Com' style={{ color: 'inherit', textDecoration: "none",fontSize:"15px"}}><MdEmail className='me-1'/>Contact@Samadhanlegal.Com</Link><br/>
+                            <Link to='tel:+91 937 310 5309' style={{ color: 'inherit', textDecoration: "none" ,fontSize:"16px"}}> <FaPhoneAlt className='me-1'/>+91 937 310 5309</Link>
                             
                         </div><br/>
                         <div className="widget col-xs-12 col-sm-6 col-md-4 col-lg-3 my-3" >
@@ -56,7 +56,7 @@ const Footer = () => {
                         <div className="widget col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
                             <h4 style={{ marginBottom: "20px" }}>Newsletter</h4>
                             <form onSubmit={handleCheckBox}> 
-                                <input type="email" required placeholder='Enter E-mail' /><br /><br />
+                                <input type="email" required placeholder=' Enter E-mail' /><br /><br />
 
 
                                 <input

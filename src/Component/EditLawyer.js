@@ -71,7 +71,7 @@ export default function EditLawyer() {
         result = await result.json();
         console.log(result);
 
-        navigate('/clientDetails');
+        navigate('/lawyerDetails');
     };
 
     const handleImage = (e) => {
@@ -94,7 +94,7 @@ export default function EditLawyer() {
                         </Link>
                     </div>
                     <Form onSubmit={handleSubmit} encType="multipart/form-data">
-                        <h4 style={{ textAlign: "center" }}>Edit Client Details</h4>
+                        <h4 style={{ textAlign: "center" }}>Edit Lawyer Details</h4>
                         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
                             <img
                                 src={previewImage}

@@ -63,16 +63,16 @@ export default function LawyerInfo() {
                     <img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
                         src={`https://samadhan-legal-services.onrender.com/${data?.image}`} alt='profile' />
                 </div><br /><br />
-                <div>
-                    <h4 style={{ display: "inline" }}>Name:{data.name}</h4>
+                <div style={{ display: 'flex',margin:"0 0 5px 0",justifyContent: 'flexStart',flexDirection:"column", padding: '10px 32vh' }}>
+                    <h4 style={{ display: "inline" }}>Name: {data.name}</h4><br/>
                     {/* <h3 style={{ display: "inline" }}>{data.name}</h3><br /> */}
-                    <h4 style={{ display: "inline" }}>Email:{data.email}</h4>
+                    <h4 style={{ display: "inline" }}>Email: {data.email}</h4><br/>
                     {/* <h5 style={{ display: "inline" }}>{data.email}</h5> */}
-                    <h4 style={{ display: "inline" }}>Experience:{data.experience}</h4>
+                    <h4 style={{ display: "inline" }}>Experience: {data.experience}</h4><br/>
                     {/* <h5 style={{ display: "inline" }}>{data.experience}</h5> */}
-                    <h4 style={{ display: "inline" }}>Degree:{data.degree}</h4>
+                    <h4 style={{ display: "inline" }}>Degree: {data.degree}</h4><br/>
                     {/* <h5 style={{ display: "inline" }}>{data.degree}</h5> */}
-                    <h4 style={{ display: "inline" }}>Catagory:{data.catagory} </h4>
+                    <h4 style={{ display: "inline" }}>Catagory: {data.catagory} </h4><br/>
                     {/* <h5 style={{ display: "inline" }}>{data.catagory}</h5> */}
                 </div>
 

@@ -183,6 +183,7 @@ export default function SignUpAdmin() {
     return (
         <>
             <Menubar />
+            <div className='container-fluid d-flex align-items-center justify-content-center vh-100'>
             <div className='signUp'>
                 <Form onSubmit={handleSubmit}
                     encType="multipart/form-data"
@@ -191,51 +192,7 @@ export default function SignUpAdmin() {
 
                 >
                     <h1>SignUp</h1>
-                    {/* <lable>Admin: </lable>
-                    <input type="radio"
-                        required
-                        value='admin'
-                        name='user'
-                        className='mx-2'
-                        checked={userType === 'admin'}
-                        onChange={(e) => setUserType(e.target.value)} />
-
-                    <lable>Lawyer: </lable>
-                    <input type="radio"
-                        required
-
-                        value='lawyer'
-                        name='user'
-                        className='mx-2'
-                        checked={userType === 'lawyer'}
-                        onChange={(e) => setUserType(e.target.value)} />
-
-
-                    <lable>Client: </lable>
-                    <input type="radio"
-                        required
-                        value='client'
-                        name='user'
-                        className='mx-2'
-                        checked={userType === 'client'}
-                        onChange={(e) => setUserType(e.target.value)} />
-                    <br /><br />
-
-                    {userType === 'admin' ?
-
-                        <Form.Group className="mb-3" controlId="formBasicSecretKey">
-                            <Form.Label>Secret Key</Form.Label>
-                            <Form.Control type="text"
-                                name="secretKey"
-                                required
-                                value={secretKey}
-                                className='mx-2'
-                                onChange={(e) => setSecretKey(e.target.value)}
-                                placeholder="Enter Secret Key" />
-
-                        </Form.Group>
-                        : null} */}
-
+                  
 
                     <Form.Group className="mb-3" controlId="formBasicImage">
                         <Form.Label>Image</Form.Label>
@@ -258,47 +215,7 @@ export default function SignUpAdmin() {
                             placeholder="Enter name" />
 
                     </Form.Group>
-                    {/* {userType === 'lawyer' ?
-
-                        (
-                            <>
-                                <Form.Group className="mb-3" controlId="formBasicExperience">
-                                    <Form.Label>Experience</Form.Label>
-                                    <Form.Control type="text"
-                                        required
-                                        value={experience}
-                                        className='mx-2'
-                                        name='experience'
-                                        onChange={(e) => setExperience(e.target.value)}
-                                        placeholder="Experience" />
-
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicDegree">
-                                    <Form.Label>Degree</Form.Label>
-                                    <Form.Control type="text"
-                                        required
-                                        value={degree}
-                                        className='mx-2'
-                                        name="degree"
-                                        onChange={(e) => setDegree(e.target.value)}
-                                        placeholder="Degree" />
-
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicCatagory">
-                                    <Form.Label>Catagory</Form.Label>
-                                    <Form.Control type="text"
-                                        required
-                                        value={catagory}
-                                        className='mx-2'
-                                        name='catagory'
-                                        onChange={(e) => setCatagory(e.target.value)}
-                                        placeholder="Catagory" />
-
-                                </Form.Group>
-                            </>
-                        )
-                        : null} */}
-
+                   
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email"
@@ -336,6 +253,7 @@ export default function SignUpAdmin() {
                     Already signUp
                     <Link to='/signIn' className='mx-4' style={{ "textDecoration": "none", "color": "orange" }}>SignIn</Link>
                 </Form>
+            </div>
             </div>
             <Footer />
         </>

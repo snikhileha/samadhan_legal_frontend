@@ -67,3 +67,15 @@
     margin: 0;
   }
 }
+@media (max-width: 475px) {
+  .LawyerProfile {
+    
+    margin: 0!important;
+    padding: 0;
+  }
+  .profile{
+    border: none;
+    margin: 0;
+  }
+ 
+}

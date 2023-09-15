@@ -61,7 +61,7 @@ export default function LawyerProfile() {
   return (
     <>
       <Menubar />
-      <div className='profile container' style={{ maxWidth: "800px", width: " 60%", margin: "50px auto" }}>
+      <div className='profile container className="col-md-10 col-sm-12 mx-auto' style={{ maxWidth: "800px", width: " 60%", margin: "50px auto" }}>
         <div className="d-flex justify-content-end">
           <Link to="/">
             <button className="float-end" style={{ border: "none", padding: "4px" }}>Back</button>
@@ -78,16 +78,26 @@ export default function LawyerProfile() {
               />
             </div>
             <br /><br />
-            <div className=" col-sm-12 text-center">
-              <h4>Name: {data.name}</h4>
-              <h5>Email: {data.email}</h5>
-            </div>
+            <div className='lawyerProfile'
+            style={{ display: 'flex',margin:"0 0 5px 0",justifyContent: 'flexStart',flexDirection:"column", padding: '10px 5vh' }}>
+                    <h4 style={{ display: "inline" }}>Name: {data.name}</h4><br/>
+                    {/* <h3 style={{ display: "inline" }}>{data.name}</h3><br /> */}
+                    <h4 style={{ display: "inline" }}>Email: {data.email}</h4><br/>
+                    {/* <h5 style={{ display: "inline" }}>{data.email}</h5> */}
+                    <h4 style={{ display: "inline" }}>Experience: {data.experience}</h4><br/>
+                    {/* <h5 style={{ display: "inline" }}>{data.experience}</h5> */}
+                    <h4 style={{ display: "inline" }}>Degree: {data.degree}</h4><br/>
+                    {/* <h5 style={{ display: "inline" }}>{data.degree}</h5> */}
+                    <h4 style={{ display: "inline" }}>Catagory: {data.catagory} </h4><br/>
+                    {/* <h5 style={{ display: "inline" }}>{data.catagory}</h5> */}
+                </div>
+
             <br /><br />
-            {/* {data._id && (
+            {data._id && (
               <div className="text-center">
                 <Link to={`/editLawyerProfile/${data._id}`}>Edit Profile</Link>
               </div>
-            )} */}
+            )}
           </>
         ) : (
           <p>Loading profile data...</p>
