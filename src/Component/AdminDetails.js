@@ -59,7 +59,7 @@ export default function AdminDetails() {
                                         <span>Delete</span>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="text-center align-middle">
                                     {data.map((i, index) => (
                                         <div key={i._id}>
                                             <span className="text-center align-middle">{index + 1}</span>
