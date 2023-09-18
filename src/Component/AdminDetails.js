@@ -43,9 +43,9 @@ export default function AdminDetails() {
             <div className="text-end my-3 mx-5">
                 <Link to="/signUp-admin" className="btn btn-primary mx-5 mb-3">Add Admin</Link>
             </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 ">
+            {/* <div className="container"> */}
+                {/* <div className="row"> */}
+                    {/* <div className="col-12 col-sm-12 col-md-12 col-lg-12 "> */}
                         <div className="table-responsive">
                             <div className="table">
                                 <div className="table-header">
@@ -94,9 +94,9 @@ export default function AdminDetails() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    {/* </div> */}
+                {/* </div> */}
+            {/* </div> */}
             <Footer />
         </>
     )
