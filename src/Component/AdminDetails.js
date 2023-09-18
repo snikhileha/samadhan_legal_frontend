@@ -1,41 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import Menubar from './Menubar';
-import Footer from './Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+// import React, { useState, useEffect } from 'react';
+// import Menubar from './Menubar';
+// import Footer from './Footer';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTrash } from '@fortawesome/free-solid-svg-icons';
+// import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+// import { faEye } from '@fortawesome/free-solid-svg-icons';
+// import { Link } from "react-router-dom";
+import React from 'react';
 
 export default function AdminDetails() {
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
 
-    useEffect(() => {
-        getAllClient();
-    }, []);
+    // useEffect(() => {
+    //     getAllClient();
+    // }, []);
 
-    const getAllClient = () => {
-        fetch(`https://samadhan-legal-services.onrender.com/getAllAdmin`, {
-            method: "GET",
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data.data);
-            });
-    }
+    // const getAllClient = () => {
+    //     fetch(`https://samadhan-legal-services.onrender.com/getAllAdmin`, {
+    //         method: "GET",
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setData(data.data);
+    //         });
+    // }
 
-    const deleteProduct = (id, name) => {
-        if (window.confirm(`Are you sure you want to delete ${name}`)) {
-            fetch(`https://samadhan-legal-services.onrender.com/admin/${id}`, {
-                method: "DELETE"
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.warn(data);
-                    getAllClient();
-                });
-        }
-    };
+    // const deleteProduct = (id, name) => {
+    //     if (window.confirm(`Are you sure you want to delete ${name}`)) {
+    //         fetch(`https://samadhan-legal-services.onrender.com/admin/${id}`, {
+    //             method: "DELETE"
+    //         })
+    //             .then((res) => res.json())
+    //             .then((data) => {
+    //                 console.warn(data);
+    //                 getAllClient();
+    //             });
+    //     }
+    // };
 
     // return (
     //     <>
