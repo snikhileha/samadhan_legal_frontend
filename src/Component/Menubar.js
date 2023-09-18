@@ -70,7 +70,7 @@ export default function Menubar() {
               className="me-2"
               aria-label="Search"
             /> */}
-              <Button variant="outline-success">
+              <Button variant="btn btn-primary">
                 <Nav.Link as={Link} to={"/signup-client"} style={{ "selfAlign": "flex-end" }}>Join Now</Nav.Link>
               </Button>
             </Form>
