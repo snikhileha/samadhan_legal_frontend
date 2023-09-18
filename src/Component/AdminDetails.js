@@ -47,48 +47,48 @@ export default function AdminDetails() {
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 ">
                         <div className="table-responsive">
-                            <div className="table table-bordered">
-                                <div className="text-center align-middle">
-                                    <div>
-                                        <span>Index</span>
-                                        <span>Profile</span>
-                                        <span>Name</span>
-                                        <span>Email</span>
-                                        <span>Edit</span>
-                                        <span>View</span>
-                                        <span>Delete</span>
+                            <div className="table">
+                                <div className="table-header">
+                                    <div className="row">
+                                        <div className="col-1">Index</div>
+                                        <div className="col-2">Profile</div>
+                                        <div className="col-2">Name</div>
+                                        <div className="col-2">Email</div>
+                                        <div className="col-1">Edit</div>
+                                        <div className="col-1">View</div>
+                                        <div className="col-1">Delete</div>
                                     </div>
                                 </div>
-                                <div className="text-center align-middle">
+                                <div className="table-body">
                                     {data.map((i, index) => (
-                                        <div key={i._id}>
-                                            <span className="text-center align-middle">{index + 1}</span>
-                                            <span className="text-center align-middle">
+                                        <div key={i._id} className="row">
+                                            <div className="col-1">{index + 1}</div>
+                                            <div className="col-2">
                                                 <img
                                                     style={{ width: "40px", height: "45px" }}
                                                     src={`https://samadhan-legal-services.onrender.com/${i?.image}`}
                                                     alt="profile"
                                                 />
-                                            </span>
-                                            <span className="text-center align-middle">{i.name}</span>
-                                            <span className="text-center align-middle">{i.email}</span>
-                                            <span className="text-center align-middle">
+                                            </div>
+                                            <div className="col-2">{i.name}</div>
+                                            <div className="col-2">{i.email}</div>
+                                            <div className="col-1">
                                                 <Link to={`/editAdmin/${i._id}`}>
                                                     <FontAwesomeIcon className="mx-4" icon={faPenToSquare} />
                                                 </Link>
-                                            </span>
-                                            <span className="text-center align-middle">
+                                            </div>
+                                            <div className="col-1">
                                                 <Link to={`/getAdmin/${i._id}`}>
                                                     <FontAwesomeIcon className="mx-4" icon={faEye} />
                                                 </Link>
-                                            </span>
-                                            <span className="text-center align-middle">
+                                            </div>
+                                            <div className="col-1">
                                                 <FontAwesomeIcon
                                                     className="mx-4"
                                                     icon={faTrash}
                                                     onClick={() => deleteProduct(i._id, i.name)}
                                                 />
-                                            </span>
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
