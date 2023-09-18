@@ -104,7 +104,7 @@ export default function AdminDetails() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col-12">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">Employee List</h5>
