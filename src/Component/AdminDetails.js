@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Menubar from './Menubar';
 import Footer from './Footer';
+import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+import { faTrash, faPenToSquare, faEye } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+// import 'react-data-table-component/styles.css';
 
 export default function AdminDetails() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getAllClient();
-    }, []);
-
-    const getAllClient = () => {
+        getAllAdmins();
+      }, []);
+      
+      const getAllAdmins = () => {
         fetch(`https://samadhan-legal-services.onrender.com/getAllAdmin`, {
-            method: "GET",
+          method: 'GET',
         })
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data.data);
-            });
-    }
+          .then((res) => res.json())
+          .then((data) => {
+            setData(data.data);
+          });
+      };
 
-    const deleteProduct = (id, name) => {
+    const deleteAdmin= (id, name) => {
         if (window.confirm(`Are you sure you want to delete ${name}`)) {
             fetch(`https://samadhan-legal-services.onrender.com/admin/${id}`, {
                 method: "DELETE"
@@ -32,72 +32,91 @@ export default function AdminDetails() {
                 .then((res) => res.json())
                 .then((data) => {
                     console.warn(data);
-                    getAllClient();
+                    getAllAdmins();
                 });
         }
     };
 
+    const columns = [
+        {
+          name: 'Index',
+          selector: 'index',
+          sortable: true,
+        },
+        {
+          name: 'Profile',
+          selector: 'profile',
+          cell: (row) => (
+            <img
+              style={{ width: '40px', height: '45px' }}
+              src={`https://samadhan-legal-services.onrender.com/${row?.image}`}
+              alt="profile"
+            />
+          ),
+        },
+        {
+          name: 'Name',
+          selector: 'name',
+          sortable: true,
+        },
+        {
+          name: 'Email',
+          selector: 'email',
+          sortable: true,
+        },
+        {
+          name: 'Edit',
+          selector: 'edit',
+          cell: (row) => (
+            <Link to={`/editAdmin/${row._id}`}>
+              <FontAwesomeIcon className="mx-4" icon={faPenToSquare} />
+            </Link>
+          ),
+        },
+        {
+          name: 'View',
+          selector: 'view',
+          cell: (row) => (
+            <Link to={`/getAdmin/${row._id}`}>
+              <FontAwesomeIcon className="mx-4" icon={faEye} />
+            </Link>
+          ),
+        },
+        {
+          name: 'Delete',
+          selector: 'delete',
+          cell: (row) => (
+            <FontAwesomeIcon
+              className="mx-4"
+              icon={faTrash}
+              onClick={() => deleteAdmin(row._id, row.name)}
+            />
+          ),
+        },
+      ];
+      
+
     return (
-        <>
-            <Menubar />
-            <div className="text-end my-3 mx-5">
-                <Link to="/signUp-admin" className="btn btn-primary mx-5 mb-3">Add Admin</Link>
-            </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 ">
-                        <div className="table-responsive">
-                            <table className="table table-bordered">
-                                <thead className="text-center align-middle">
-                                    <tr>
-                                        <th>Index</th>
-                                        <th>Profile</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Edit</th>
-                                        <th>View</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {data.map((i, index) => (
-                                        <tr key={i._id}>
-                                            <td className="text-center align-middle">{index + 1}</td>
-                                            <td className="text-center align-middle">
-                                                <img
-                                                    style={{ width: "40px", height: "45px" }}
-                                                    src={`https://samadhan-legal-services.onrender.com/${i?.image}`}
-                                                    alt="profile"
-                                                />
-                                            </td>
-                                            <td className="text-center align-middle">{i.name}</td>
-                                            <td className="text-center align-middle">{i.email}</td>
-                                            <td className="text-center align-middle">
-                                                <Link to={`/editAdmin/${i._id}`}>
-                                                    <FontAwesomeIcon className="mx-4" icon={faPenToSquare} />
-                                                </Link>
-                                            </td>
-                                            <td className="text-center align-middle">
-                                                <Link to={`/getAdmin/${i._id}`}>
-                                                    <FontAwesomeIcon className="mx-4" icon={faEye} />
-                                                </Link>
-                                            </td>
-                                            <td className="text-center align-middle">
-                                                <FontAwesomeIcon
-                                                    className="mx-4"
-                                                    icon={faTrash}
-                                                    onClick={() => deleteProduct(i._id, i.name)}
-                                                />
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <Footer />
-        </>
-    )
+  <>
+    <Menubar />
+    <div className="text-end my-3 mx-5">
+      <Link to="/signUp-admin" className="btn btn-primary mx-5 mb-3">
+        Add Admin
+      </Link>
+    </div>
+    <div className="container">
+      <div className="row">
+        <div className="col-12 col-sm-12 col-md-12 col-lg-12">
+          <DataTable
+            title="Admin Data"
+            columns={columns}
+            data={data}
+            pagination
+          />
+        </div>
+      </div>
+    </div>
+    <Footer />
+  </>
+);
 }

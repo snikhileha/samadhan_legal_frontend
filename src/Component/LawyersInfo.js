@@ -3,6 +3,9 @@ import Menubar from './Menubar';
 import Footer from './Footer';
 import Card from 'react-bootstrap/Card';
 import Pagination from 'react-bootstrap/Pagination';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 export default function LawyersInfo() {
   const [data, setData] = useState([]);
@@ -62,34 +65,38 @@ export default function LawyersInfo() {
     }
   };
 
-  return (
-    <>
-      <Menubar />
-      <div style={{ margin: '20px auto', width: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h2 style={{ textAlign: 'center' }}>Lawyer Info</h2>
-        <div className="widget row-md-4 lawyerInfo">
-          {currentItems.map((i) => (
-            <Card style={{ width: '18rem', border: 'none' }} className="cardItem" key={i.id}>
-              <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
+  // ... (previous code)
+
+return (
+  <>
+    <Menubar />
+    <Container style={{ margin: '20px auto', maxWidth: '800px' }}>
+      <h2 className="text-center">Lawyer Info</h2>
+      <Row className="justify-content-center">
+        {currentItems.map((i) => (
+          <Col sm={6} md={4} key={i.id}>
+            <Card className="mb-3" style={{ border: "none" }}>
+              <div className="text-center mt-3">
                 <Card.Img
                   style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
                   src={`https://samadhan-legal-services.onrender.com/${i?.image}`}
                 />
               </div>
               <Card.Body>
-                <Card.Title style={{ textAlign: 'center' }}>{i.name}</Card.Title>
+                <Card.Title className="text-center">{i.name}</Card.Title>
                 <Card.Text>{/* Card text content */}</Card.Text>
               </Card.Body>
             </Card>
-          ))}
-        </div>
-        <Pagination style={{ marginTop: '20px' }}>
-          <Pagination.Prev onClick={handlePreviousPage} disabled={currentPage === 1} style={{backgroundColor:"black"}} />
-          {pageItems}
-          <Pagination.Next onClick={handleNextPage} disabled={currentPage === Math.ceil(data.length / itemsPerPage)} style={{backgroundColor:"black"}} />
-        </Pagination>
-      </div>
-      <Footer />
-    </>
-  );
+          </Col>
+        ))}
+      </Row>
+      <Pagination className="justify-content-center">
+        <Pagination.Prev onClick={handlePreviousPage} disabled={currentPage === 1} />
+        {pageItems}
+        <Pagination.Next onClick={handleNextPage} disabled={currentPage === Math.ceil(data.length / itemsPerPage)} />
+      </Pagination>
+    </Container>
+    <Footer />
+  </>
+);
 }
