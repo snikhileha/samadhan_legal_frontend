@@ -47,52 +47,52 @@ export default function AdminDetails() {
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 ">
                         <div className="table-responsive">
-                            <table className="table table-bordered">
-                                <thead className="text-center align-middle">
-                                    <tr>
-                                        <th>Index</th>
-                                        <th>Profile</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Edit</th>
-                                        <th>View</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            <div className="table table-bordered">
+                                <div className="text-center align-middle">
+                                    <div>
+                                        <span>Index</span>
+                                        <span>Profile</span>
+                                        <span>Name</span>
+                                        <span>Email</span>
+                                        <span>Edit</span>
+                                        <span>View</span>
+                                        <span>Delete</span>
+                                    </div>
+                                </div>
+                                <div>
                                     {data.map((i, index) => (
-                                        <tr key={i._id}>
-                                            <td className="text-center align-middle">{index + 1}</td>
-                                            <td className="text-center align-middle">
+                                        <div key={i._id}>
+                                            <span className="text-center align-middle">{index + 1}</span>
+                                            <span className="text-center align-middle">
                                                 <img
                                                     style={{ width: "40px", height: "45px" }}
                                                     src={`https://samadhan-legal-services.onrender.com/${i?.image}`}
                                                     alt="profile"
                                                 />
-                                            </td>
-                                            <td className="text-center align-middle">{i.name}</td>
-                                            <td className="text-center align-middle">{i.email}</td>
-                                            <td className="text-center align-middle">
+                                            </span>
+                                            <span className="text-center align-middle">{i.name}</span>
+                                            <span className="text-center align-middle">{i.email}</span>
+                                            <span className="text-center align-middle">
                                                 <Link to={`/editAdmin/${i._id}`}>
                                                     <FontAwesomeIcon className="mx-4" icon={faPenToSquare} />
                                                 </Link>
-                                            </td>
-                                            <td className="text-center align-middle">
+                                            </span>
+                                            <span className="text-center align-middle">
                                                 <Link to={`/getAdmin/${i._id}`}>
                                                     <FontAwesomeIcon className="mx-4" icon={faEye} />
                                                 </Link>
-                                            </td>
-                                            <td className="text-center align-middle">
+                                            </span>
+                                            <span className="text-center align-middle">
                                                 <FontAwesomeIcon
                                                     className="mx-4"
                                                     icon={faTrash}
                                                     onClick={() => deleteProduct(i._id, i.name)}
                                                 />
-                                            </td>
-                                        </tr>
+                                            </span>
+                                        </div>
                                     ))}
-                                </tbody>
-                            </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
