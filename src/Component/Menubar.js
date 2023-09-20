@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +11,11 @@ import slsLogo from '../Images/companyLogo.png'
 // import { Button } from 'bootstrap';
 
 export default function Menubar() {
+  const [selectedItem, setSelectedItem] = useState("UserDetails");
+ 
+  const handleSelectItem = (itemTitle) => {
+    setSelectedItem(itemTitle);
+  };
   let auth = localStorage.getItem('loggedIn');
   let admin = localStorage.getItem('usertype-admin');
   let client = localStorage.getItem('usertype-client');
@@ -42,10 +47,10 @@ export default function Menubar() {
               {/* {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientDetails</Nav.Link>) : null} */}
               {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientProfile</Nav.Link>) : null}
               {lawyer ? (<Nav.Link as={Link} to={"/lawyerprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>LawyerProfile</Nav.Link>) : null}
-              {admin ? (<NavDropdown title="UserDetails" id="navbarScrollingDropdown">
-                <NavDropdown.Item as={Link} to={"/adminDetails"}>AdminDetails</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/clientDetails"}>ClientDetails</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/lawyerDetails"}>LawyerDetails</NavDropdown.Item>
+              {admin ? (<NavDropdown title={selectedItem} id="navbarScrollingDropdown">
+                <NavDropdown.Item as={Link} to={"/adminDetails"} onClick={() => handleSelectItem("AdminDetails")}>AdminDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/clientDetails"} onClick={() => handleSelectItem("ClientDetails")}>ClientDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/lawyerDetails"} onClick={() => handleSelectItem("LawyerDetails")}>LawyerDetails</NavDropdown.Item>
                 {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">
                   Something else here
