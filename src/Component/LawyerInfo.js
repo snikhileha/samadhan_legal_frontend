@@ -62,7 +62,7 @@ export default function LawyerInfo() {
 
                     <img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
                         src={`https://samadhan-legal-services.onrender.com/${data?.image}`} alt='profile' />
-                </div><br /><br />
+                </div><br />
                 <div style={{ display: 'flex',justifyContent: 'flexStart',flexDirection:"column", padding: '10px 32vh' }}>
                     <h4 style={{ display: "inline" }}>Name: {data.name}</h4><br/>
                     {/* <h3 style={{ display: "inline" }}>{data.name}</h3><br /> */}
