@@ -13,9 +13,9 @@ import slsLogo from '../Images/companyLogo.png'
 export default function Menubar() {
   const [selectedItem, setSelectedItem] = useState("UserDetails");
  
-  const handleSelectItem = (itemTitle) => {
-    setSelectedItem(itemTitle);
-  };
+  // const handleSelectItem = (itemTitle) => {
+  //   setSelectedItem(itemTitle);
+  // };
   let auth = localStorage.getItem('loggedIn');
   let admin = localStorage.getItem('usertype-admin');
   let client = localStorage.getItem('usertype-client');
@@ -48,9 +48,9 @@ export default function Menubar() {
               {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientProfile</Nav.Link>) : null}
               {lawyer ? (<Nav.Link as={Link} to={"/lawyerprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>LawyerProfile</Nav.Link>) : null}
               {admin ? (<NavDropdown title={selectedItem} id="navbarScrollingDropdown">
-                <NavDropdown.Item as={Link} to={"/adminDetails"} onClick={() => handleSelectItem("AdminDetails")}>AdminDetails</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/clientDetails"} onClick={() => handleSelectItem("ClientDetails")}>ClientDetails</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/lawyerDetails"} onClick={() => handleSelectItem("LawyerDetails")}>LawyerDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/adminDetails"} onClick={(e) => setSelectedItem("AdminDetails")}>AdminDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/clientDetails"} onClick={(e) => setSelectedItem("ClientDetails")}>ClientDetails</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/lawyerDetails"} onClick={(e) => setSelectedItem("LawyerDetails")}>LawyerDetails</NavDropdown.Item>
                 {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">
                   Something else here
