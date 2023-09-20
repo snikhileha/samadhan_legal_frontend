@@ -51,7 +51,7 @@ export default function LawyerInfo() {
         <>
             <Menubar />
             <div className='container-fluid d-flex  vh-100'>
-            <div className='profile' style={{ maxWidth: "800px", width: " 60%", margin: "50px auto" }}>
+            <div className='profile' style={{ maxWidth: "800px", width: " 60%",height:"70%", margin: "50px auto" }}>
                 <div class="d-flex justify-content-end">
                     <Link to="/lawyerDetails"><button className=" float-end" style={{ border: "none", padding: "4px" }}>Back
                         {/* <img style={{ borderRadius: '50%', width: '35px', height: '35px', objectFit: 'cover'}}src={prs} alt="back"/> */}
