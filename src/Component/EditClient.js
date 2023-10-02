@@ -75,7 +75,7 @@ export default function EditClient() {
       <Menubar />
       <div className='container-fluid d-flex align-items-center justify-content-center min-vh-100'>
         <div className="signUp">
-          <div class="d-flex justify-content-end">
+          <div className="d-flex justify-content-end">
             <Link to="/clientDetails">
               <button style={{ border: "none", padding: "5px" }}>
                 {/* <FaForward className='mx-2'/> */}
@@ -127,7 +127,7 @@ export default function EditClient() {
                 placeholder="Enter email"
               />
             </Form.Group><br />
-            <div class="text-center">
+            <div className="text-center">
               <Button variant="primary" type="submit" className='btn btn-primary btn-lg'>
                 Update
               </Button>

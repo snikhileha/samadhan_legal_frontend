@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -11,15 +11,27 @@ import slsLogo from '../Images/companyLogo.png'
 // import { Button } from 'bootstrap';
 
 export default function Menubar() {
-  const [selectedItem, setSelectedItem] = useState("UserDetails");
- 
-  // const handleSelectItem = (itemTitle) => {
-  //   setSelectedItem(itemTitle);
-  // };
+  const [selectedItem, setSelectedItem] = useState("UserDetails"); // Initialize with a default title
+  const [key, setKey] = useState(0);
+  useEffect(() => {
+
+    setSelectedItem("UserDetails");
+    setKey(Math.random());
+    // return () => {
+    //   // document.title = selectedItem;
+    // }
+  }, []);
+  const handleSelectItem = (item) => {
+    setSelectedItem(item); // Update the selected item using state
+    // console.log(selectedItem);
+  };
+
+
+
   let auth = localStorage.getItem('loggedIn');
   let admin = localStorage.getItem('usertype-admin');
   let client = localStorage.getItem('usertype-client');
-  let lawyer =  localStorage.getItem('usertype-lawyer');
+  let lawyer = localStorage.getItem('usertype-lawyer');
   let navigate = useNavigate();
   const signOut = () => {
     localStorage.clear();
@@ -47,15 +59,14 @@ export default function Menubar() {
               {/* {admin ? (<Nav.Link as={Link} to={"/clientDetails"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientDetails</Nav.Link>) : null} */}
               {client ? (<Nav.Link as={Link} to={"/clientprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>ClientProfile</Nav.Link>) : null}
               {lawyer ? (<Nav.Link as={Link} to={"/lawyerprofile"} style={{ "selfAlign": "flex-end", marginRight: '10px' }}>LawyerProfile</Nav.Link>) : null}
-              {admin ? (<NavDropdown title={selectedItem} id="navbarScrollingDropdown">
-                <NavDropdown.Item as={Link} to={"/adminDetails"} onClick={(e) => setSelectedItem("AdminDetails")}>AdminDetails</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/clientDetails"} onClick={(e) => setSelectedItem("ClientDetails")}>ClientDetails</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/lawyerDetails"} onClick={(e) => setSelectedItem("LawyerDetails")}>LawyerDetails</NavDropdown.Item>
-                {/* <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item> */}
-              </NavDropdown>): null}
+              {admin ? (<React.Fragment key={key}>
+                <NavDropdown title={selectedItem || "UserDetails"} id="navbarScrollingDropdown">
+                  <NavDropdown.Item as={Link} to={"/adminDetails"} onClick={() => handleSelectItem("AdminDetails")}>AdminDetails</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/clientDetails"} onClick={() => handleSelectItem("ClientDetails")}>ClientDetails</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/lawyerDetails"} onClick={() => handleSelectItem("LawyerDetails")}>LawyerDetails</NavDropdown.Item>
+                </NavDropdown>
+              </React.Fragment>
+              ) : null}
               {/* <Nav.Link as={Link} to={"/profile"}>
               Profile
             </Nav.Link> */}
