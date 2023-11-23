@@ -16,7 +16,7 @@ export default function LawyerInfo() {
 
     useEffect(() => {
         const getClient = () => {
-            fetch(`https://samadhan-legal-services.onrender.com/getLawyer/${lawyerId.lawyerId}`, {
+            fetch(`https://samadhan-legal-services.onrender.com/lawyerRoute/getLawyer/${lawyerId.lawyerId}`, {
                 method: "GET",
             })
                 .then((res) => res.json())
@@ -51,7 +51,7 @@ export default function LawyerInfo() {
         <>
             <Menubar />
             <div className='container-fluid d-flex  vh-100'>
-            <div className='profile' style={{ maxWidth: "800px", width: " 60%",height:"auto", margin: "50px auto" }}>
+            <div className='profile' style={{ maxWidth: "800px", width: " 60%",height:"auto"}}>
                 <div class="d-flex justify-content-end">
                     <Link to="/lawyerDetails"><button className=" float-end" style={{ border: "none", padding: "4px" }}>Back
                         {/* <img style={{ borderRadius: '50%', width: '35px', height: '35px', objectFit: 'cover'}}src={prs} alt="back"/> */}
@@ -63,7 +63,7 @@ export default function LawyerInfo() {
                     <img style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }}
                         src={`https://samadhan-legal-services.onrender.com/${data?.image}`} alt='profile' />
                 </div><br />
-                <div style={{ display: 'flex',justifyContent: 'flexStart',flexDirection:"column", padding: '10px 32vh' }}>
+                <div style={{textAlign: "center", display: 'flex',justifyContent: 'flexStart',flexDirection:"column", padding: 'auto' }}>
                     <h4 style={{ display: "inline" }}>Name: {data.name}</h4><br/>
                     {/* <h3 style={{ display: "inline" }}>{data.name}</h3><br /> */}
                     <h4 style={{ display: "inline" }}>Email: {data.email}</h4><br/>

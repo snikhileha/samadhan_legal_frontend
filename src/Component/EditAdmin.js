@@ -17,7 +17,7 @@ export default function EditAdmin() {
   const { adminId } = useParams();
   useEffect(() => {
     const getClient = async () => {
-      let result = await fetch(`https://samadhan-legal-services.onrender.com/getAdmin/${adminId}`);
+      let result = await fetch(`https://samadhan-legal-services.onrender.com/adminRoute/getAdmin/${adminId}`);
       result = await result.json();
 
       setName(result.data.name);
@@ -53,9 +53,9 @@ export default function EditAdmin() {
     if (image) {
       formData.append('image', image);
     }
-    // console.log(formData);
+    console.log(formData);
 
-    let result = await fetch(`https://samadhan-legal-services.onrender.com/editAdmin/${adminId}`, {
+    let result = await fetch(`https://samadhan-legal-services.onrender.com/adminRoute/editAdmin/${adminId}`, {
       method: 'PUT',
       body: formData,
     });

@@ -16,7 +16,7 @@ export default function ClientInfo() {
 
     useEffect(() => {
         const getClient = () => {
-            fetch(`https://samadhan-legal-services.onrender.com/getClient/${clientId.clientId}`, {
+            fetch(`https://samadhan-legal-services.onrender.com/clientRoute/getClient/${clientId.clientId}`, {
                 method: "GET",
             })
                 .then((res) => res.json())

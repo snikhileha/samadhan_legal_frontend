@@ -16,7 +16,7 @@ export default function AdminInfo() {
 
     useEffect(() => {
         const getClient = () => {
-            fetch(`https://samadhan-legal-services.onrender.com/getAdmin/${adminId.adminId}`, {
+            fetch(`https://samadhan-legal-services.onrender.com/adminRoute/getAdmin/${adminId.adminId}`, {
                 method: "GET",
             })
                 .then((res) => res.json())

@@ -17,7 +17,7 @@ export default function LawyersInfo() {
   }, []);
 
   const getLawyerDetails = () => {
-    fetch('https://samadhan-legal-services.onrender.com/getAllLawyer', {
+    fetch('https://samadhan-legal-services.onrender.com/lawyerRoute/getAllLawyer', {
       method: 'GET',
     })
       .then((res) => res.json())

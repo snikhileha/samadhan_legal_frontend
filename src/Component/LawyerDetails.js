@@ -19,7 +19,7 @@ export default function LawyerDetails() {
   }, []);
 
   const getAllClient = () => {
-    fetch(`https://samadhan-legal-services.onrender.com/getAllLawyer`, {
+    fetch(`https://samadhan-legal-services.onrender.com/lawyerRoute/getAllLawyer`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ export default function LawyerDetails() {
 
   const deleteProduct = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch(`https://samadhan-legal-services.onrender.com/lawyer/${id}`, {
+      fetch(`https://samadhan-legal-services.onrender.com/lawyerRoute/lawyer/${id}`, {
         method: "DELETE"
       })
         .then((res) => res.json())

@@ -20,7 +20,7 @@ export default function EditLawyerProfile() {
     const { lawyerId } = useParams();
     useEffect(() => {
         const getClient = async () => {
-            let result = await fetch(`https://samadhan-legal-services.onrender.com/getLawyer/${lawyerId}`);
+            let result = await fetch(`https://samadhan-legal-services.onrender.com/lawyerRoute/getLawyer/${lawyerId}`);
             result = await result.json();
 
             setName(result.data.name);
@@ -64,7 +64,7 @@ export default function EditLawyerProfile() {
         }
         // console.log(formData);
 
-        let result = await fetch(`https://samadhan-legal-services.onrender.com/editlawyer/${lawyerId}`, {
+        let result = await fetch(`https://samadhan-legal-services.onrender.com/lawyerRoute/editlawyer/${lawyerId}`, {
             method: 'PUT',
             body: formData,
         });

@@ -12,6 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function SignUpClient() {
     const [name, setName] = useState("");
     const [image, setImage] = useState(null);
+    console.log(image);
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [password, setPassword] = useState("");
@@ -88,7 +89,7 @@ export default function SignUpClient() {
         // formData.append("user", userType);
         formData.append("password", password);
         if (isEmail) {
-            await fetch("https://samadhan-legal-services.onrender.com/signUp-client", {
+            await fetch("https://samadhan-legal-services.onrender.com/clientRoute/signUp-client", {
                 method: "POST",
                 crossDomain: true,
 
@@ -165,6 +166,7 @@ export default function SignUpClient() {
     }
     const handleImage = (e) => {
         setImage(e.target.files[0]);
+        // console.log(image);
     }
     const emailValidation = () => {
         const regex = /[A-Za-z0-9_/-/.]+[@][a-z]+[/.][a-z]{2,3}/

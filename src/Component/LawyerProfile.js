@@ -10,7 +10,7 @@ export default function LawyerProfile() {
 
   useEffect(() => {
     const viewProfile = () => {
-      fetch("https://samadhan-legal-services.onrender.com/lawyerProfile", {
+      fetch("https://samadhan-legal-services.onrender.com/profileRoute/lawyerProfile", {
         method: "POST",
         crossDomain: true,
         headers: {

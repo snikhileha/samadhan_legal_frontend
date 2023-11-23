@@ -21,7 +21,7 @@ const SignIn = () => {
     }
 
     console.log(email, password);
-    fetch("https://samadhan-legal-services.onrender.com/signIn", {
+    fetch("https://samadhan-legal-services.onrender.com/signInRoute/signIn", {
       method: "POST",
       crossDomain: true,
       headers: {

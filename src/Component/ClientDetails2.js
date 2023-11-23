@@ -14,7 +14,7 @@ export default function ClientDetails() {
   }, []);
 
   const getAllClient = () => {
-    fetch(`https://samadhan-legal-services.onrender.com/getAllClient`, {
+    fetch(`https://samadhan-legal-services.onrender.com//clientRoutegetAllClient`, {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -25,7 +25,7 @@ export default function ClientDetails() {
 
   const deleteProduct = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch(`https://samadhan-legal-services.onrender.com/client/${id}`, {
+      fetch(`https://samadhan-legal-services.onrender.com//clientRouteclient/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

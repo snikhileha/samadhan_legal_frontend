@@ -19,7 +19,7 @@ export default function AdminDetails() {
   }, []);
 
   const getAllClient = () => {
-    fetch(`https://samadhan-legal-services.onrender.com/getAllAdmin`, {
+    fetch(`https://samadhan-legal-services.onrender.com/adminRoute/getAllAdmin`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ export default function AdminDetails() {
 
   const deleteProduct = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}`)) {
-      fetch(`https://samadhan-legal-services.onrender.com/admin/${id}`, {
+      fetch(`https://samadhan-legal-services.onrender.com/adminRoute/admin/${id}`, {
         method: "DELETE"
       })
         .then((res) => res.json())
